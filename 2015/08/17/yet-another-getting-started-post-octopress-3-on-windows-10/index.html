@@ -7,11 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Yet Another Getting Started Post - Blog with Octopress 3 on Windows 10</title>
-  <meta name="description" content="TLDR;  Blog more than you tweet  Static blogs are great if you are a developer  Octopress is a good platform to setup a technical blog, but you need to know ...">
+  <meta name="description" content="Blog more than you tweet. Static blogs are great if you are a developer. Octopress is a good platform to setup a technical blog, but you need to know a bit a...">
   <meta name="google-translate-customization" content="b9870a0c7376df54-aa35852016e6a5cc-ga0a0d80f6c171f17-e"></meta>
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://krishna.nadiminti.me/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/">
-  <link href="/favicon.png" rel="icon">
+  <link href="/images/favicon.png" rel="icon">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="alternate" type="application/rss+xml" title="World of Dualities" href="http://krishna.nadiminti.me/feed.xml">
   <link rel="alternate" type="application/atom+xml" title="World of Dualities" href="http://krishna.nadiminti.me/atom.xml" />
@@ -19,17 +19,13 @@
 
 
   <body>
-         <div class="col-md-12 navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">World of Dualities</a>
-      </div>
+    <div class="container-fluid">
+      <div class="row">
+
+            <div class="col-md-12 navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-collapse collapse navbar-inverse-collapse">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="/">Home</a></li>
           
             
               <li><a href="/about/">About</a></li>
@@ -74,23 +70,25 @@
     </div>
 
 
-    <div class="col-md-12 blog-theme-class">
+        <div class="col-md-12 blog-theme-class">
           <!-- Top Blog Header -->
           <div class="row jumb-bot">
             <div class="col-md-1">
               <div class="clip-circle-avatar avatar-jumbo-align"></div>
             </div>
-            <div class="jumbotron jumb-bot-jumbu col-md-10">
-
-              <h1>World of Dualities</h1>
-              <p>Random ramblings of a software geek.
+            <div class="col-md-10">
+              <div class="jumbotron jumb-bot-jumbu">
+                <h1>World of Dualities</h1>
+                <p>Random ramblings of a software geek.
 </p>
+              </div>
             </div>
             <div class="col-md-1"></div>
           </div>
-    </div>
-    <div class="col-md-12">
-        <div class="row">
+        </div>
+
+        <div class="col-md-12">
+            <div class="row">
 	<div class="col-md-1"></div>
 	<div class="col-md-10">
 
@@ -115,6 +113,8 @@
   <li>Setting it up on Windows is slightly tricky if you are new to Ruby</li>
   <li>This post has some useful tips to help you with that</li>
 </ul>
+
+<!-- more -->
 
 <h3 id="why-blog">Why blog?</h3>
 
@@ -335,16 +335,22 @@ So after considering various options, I settled on using Octopress.</p>
     
     <!--li><a href="/blog/archives">Blog Archives</a></li-->
     
+    <li class="next"><a class="basic-alignment right" href="/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/"
+      title="Next Post: An Experiment With Developing a Mobile App in the Open">An Experiment With Developing a Mobile App in the Open
+      &raquo;</a></li>
+    
   </ul>
 
 	</div>
 	<div class="col-md-1"></div>
 </div>
-    </div>
-    <div class="col-md-12 share-div">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-          
+        </div>
+
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              
 
 
 <div class="twitter_share">
@@ -363,11 +369,13 @@ So after considering various options, I settled on using Octopress.</p>
 
 
 
+            </div>
+            <div class="col-md-1"></div>
+          </div>
         </div>
-        <div class="col-md-1"></div>
-    </div>
-    <div class="col-md-12">
-    <!-- Footer -->
+
+        <div class="col-md-12">
+          <!-- Footer -->
             <div class="row footer">
               <div class="col-md-1"></div>
               <div class="col-md-10">
@@ -375,6 +383,8 @@ So after considering various options, I settled on using Octopress.</p>
                     <div class="col-md-3">
                       <h4>Recent Posts</h4>
                         <ul class="recent-posts">
+                        
+                          <li><a href="/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">An Experiment With Developing a Mobile App in the Open</a></li>
                         
                           <li><a href="/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/">Yet Another Getting Started Post - Blog with Octopress 3 on Windows 10</a></li>
                         
@@ -390,9 +400,10 @@ So after considering various options, I settled on using Octopress.</p>
             </div>
           <!-- End Footer -->
 
-    </div>
-    <div class="col-md-12">
-    			<div class="row end_footer">
+        </div>
+
+        <div class="col-md-12">
+        			<div class="row end_footer">
               <div class="col-md-1"></div>
               <div class="col-md-6">
                 <p>Copyright &copy; World of Dualities 2015</p>
@@ -401,8 +412,9 @@ So after considering various options, I settled on using Octopress.</p>
               <div class="col-md-1"></div>
             </div>
 
-    </div>
-        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        </div>
+
+            <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/prettify.js"></script>
     <script>
@@ -414,7 +426,7 @@ So after considering various options, I settled on using Octopress.</p>
     </script>
     <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_setAccount', 'UA-66680723-1']);
     _gaq.push(['_trackPageview']);
 
     (function() {
@@ -433,7 +445,8 @@ So after considering various options, I settled on using Octopress.</p>
       }
     </style>
 
-
+      </div>
+    </div>
   </body>
 
 </html>

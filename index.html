@@ -12,7 +12,7 @@
   <meta name="google-translate-customization" content="b9870a0c7376df54-aa35852016e6a5cc-ga0a0d80f6c171f17-e"></meta>
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://krishna.nadiminti.me/">
-  <link href="/favicon.png" rel="icon">
+  <link href="/images/favicon.png" rel="icon">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="alternate" type="application/rss+xml" title="World of Dualities" href="http://krishna.nadiminti.me/feed.xml">
   <link rel="alternate" type="application/atom+xml" title="World of Dualities" href="http://krishna.nadiminti.me/atom.xml" />
@@ -20,17 +20,13 @@
 
 
   <body>
-         <div class="col-md-12 navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">World of Dualities</a>
-      </div>
+    <div class="container-fluid">
+      <div class="row">
+
+            <div class="col-md-12 navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-collapse collapse navbar-inverse-collapse">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="/">Home</a></li>
           
             
               <li><a href="/about/">About</a></li>
@@ -75,227 +71,58 @@
     </div>
 
 
-    <div class="col-md-12 blog-theme-class">
+        <div class="col-md-12 blog-theme-class">
           <!-- Top Blog Header -->
           <div class="row jumb-bot">
             <div class="col-md-1">
               <div class="clip-circle-avatar avatar-jumbo-align"></div>
             </div>
-            <div class="jumbotron jumb-bot-jumbu col-md-10">
-
-              <h1>World of Dualities</h1>
-              <p>Random ramblings of a software geek.
+            <div class="col-md-10">
+              <div class="jumbotron jumb-bot-jumbu">
+                <h1>World of Dualities</h1>
+                <p>Random ramblings of a software geek.
 </p>
+              </div>
             </div>
             <div class="col-md-1"></div>
           </div>
-    </div>
-    <div class="col-md-12">
-                <div class="row">
+        </div>
+
+        <div class="col-md-12">
+                    <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-7">
               <!-- Blog Post Links -->
               <div class="blog-post-small">
                 
+                  <h3><a href="/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">An Experiment With Developing a Mobile App in the Open</a></h3>
+                  <p><i class="fa fa-calendar"></i> &nbsp;Aug 18, 2015 | 
+                   <a href="/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/#disqus_thread">Comments</a>
+                  </p>
+
+                  
+                    <p class="post-summary">
+                    
+                      So, I've been developing this Windows 8.x 'Metro' app - [All About Money](http://silveroakapps.com) - for a while now (first released a version in late 2012).
+
+
+                    
+                      <a class="post-read-more-link" href="/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/"class="btn btn-primary btn-sm">Read More</a>
+                    </p>
+                  
+                
                   <h3><a href="/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/">Yet Another Getting Started Post - Blog with Octopress 3 on Windows 10</a></h3>
                   <p><i class="fa fa-calendar"></i> &nbsp;Aug 17, 2015 | 
                    <a href="/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/#disqus_thread">Comments</a>
                   </p>
+
                   
-                    <h3 id="tldr">TLDR;</h3>
-
-<ul>
-  <li>Blog more than you tweet</li>
-  <li>Static blogs are great if you are a developer</li>
-  <li>Octopress is a good platform to setup a technical blog, but you need to know Jekyll first</li>
-  <li>Setting it up on Windows is slightly tricky if you are new to Ruby</li>
-  <li>This post has some useful tips to help you with that</li>
-</ul>
-
-<h3 id="why-blog">Why blog?</h3>
-
-<p>I was recently evaluating the kind of activities I was doing on a daily basis and found that I was consuming a lot more content that creating it. Also, I was spending <a href="http://keysleft.com/">a lot more keystrokes</a> on twitter than a less ephemeral medium like a blog.</p>
-
-<p>So, inspired by Scott Hanselman’s <a href="http://www.hanselman.com/blog/YourWordsAreWasted.aspx">urging devs to blog more</a>, I decided to do some more blogging. (Let’s see how this turns out!)
-I had a very minor presence before on <a href="http://krishnanadiminti.blogspot.com.au/">blogger</a> - but wanted to own my content from now on.</p>
-
-<p>Since then, I spent some (too much?) time trying to decide a good platform to setup my blog - and thought it might be a good idea to post my thoughts and struggles when I finally managed to get this blog up and running.</p>
-
-<p>The idea of a <a href="https://staticsitegenerators.net/">statically generated site</a>, without the <a href="https://google.com/search?q=wordpress%20vs%20jekyll">headaches of performance and security</a> are very appealing to me.
-Looking at what others have done, I found that <a href="http://jekyllrb.com/">Jekyll</a> is a popular platform, and <a href="https://github.com/octopress/octopress">Octopress</a> seemed to improve upon it.
-So after considering various options, I settled on using Octopress.</p>
-
-<p>This is where ‘the fun’ began.</p>
-
-<h4 id="my-starting-point">My starting point</h4>
-
-<p>I’m a web developer who’s spent a lot of time on the Microsoft stack. Windows is my main OS - and I’d never developed with the Ruby language/ecosystem. I plan to go into more detail in a separate post about the specific technical issues I had to solve, but this post about is what worked for me in the end.</p>
-
-<p>The main issue I found with various (helpful) blog posts around the web describing how to use Octopress / Jekyll was a ton of unsaid assumptions - and a primary focus on devs who already knew Ruby or were on a Mac/Linux etc.</p>
-
-<p>I wanted to avoid that, so here goes:</p>
-
-<h4 id="assumptions">Assumptions</h4>
-
-<ul>
-  <li>You are a web developer on Windows looking to setup a ‘statically generated’ blog</li>
-  <li>You know about DNS in general and can figure out how to setup domains etc</li>
-  <li>You can deal with the commandline</li>
-  <li>You know about <a href="http://www.git-scm.com/">Git</a> (an awesome distrbuted version control system) and <a href="http://www.github.com/">GitHub</a> and already have git installed</li>
-  <li>You know about <a href="http://chocolatey.org">Chocolatey</a> (a great machine package manager for Windows)</li>
-  <li>You know about <a href="https://help.github.com/articles/markdown-basics/">Markdown</a></li>
-  <li>You’re willing to try out new things</li>
-  <li>You don’t know much about Ruby (in reality, this post has nothing much to do with Ruby anyway - other than setting it up so Octopress can be installed and used)</li>
-</ul>
-
-<h4 id="what-i-will-cover">What I will cover</h4>
-<ul>
-  <li>Basic setup of Octopress on Windows (what worked for me)</li>
-  <li>Some thoughts on how I setup my repo</li>
-</ul>
-
-<h4 id="what-i-will-not-cover--repeat">What I will not cover / repeat</h4>
-<ul>
-  <li>Blogging with Octopress/Jekyll in detail (<a href="https://www.google.com/search?q=getting+started+with+octopress">there is a lot of information about that out there</a>)</li>
-  <li>Setting up DNS and <a href="https://pages.github.com/">Github pages</a> (which is a free service to host your websites)</li>
-  <li>Setting up search, comments and bunch of other things that are really needed if you want a more full-featured blog</li>
-</ul>
-
-<h2 id="using-octopress-3-on-windows-10-and-publish-to-github-pages">Using Octopress 3 on Windows 10 and publish to Github pages</h2>
-
-<p>At the end of this, my plan was to:
-- Have a Github pages hosted statically generated blog (for free)
-- Have my custom domain pointed to it
-- (Later) Be able to easily add some of the features/services found on a more full-featured platform like <a href="http://wordpress.com">Wordpress</a></p>
-
-<h3 id="setup-steps">Setup steps:</h3>
-
-<p><strong>1. Install Ruby using Chocolatey</strong></p>
-
-<p>From an <em>admin PowerShell session</em>, run:</p>
-
-<pre><code>  choco install ruby -y
-</code></pre>
-
-<p>Chocolatey installs applications at <code>C:\tools</code> by default. I personally don’t like that - but I can live with it: they have their reasons.</p>
-
-<p>This gave me Ruby at <code>C:\tools\ruby21</code>.</p>
-
-<p><strong>2. Install DevKit</strong></p>
-
-<p>Ruby has a package manager (gem - like Nuget in the Microsoft world) - and some packages need native ‘compilation’ after installation. This is what the DevKit enables/simplifies? on Windows.</p>
-
-<p><!--Installing DevKit via Chocolatey is far from perfect. I found this out the hard way.--></p>
-
-<p>In the same admin PowerShell session, run:</p>
-
-<pre><code>  choco install ruby2.devkit -y
-</code></pre>
-
-<p>This gave me Ruby DevKit at <code>C:\tools\DevKit2</code>.</p>
-
-<p>In my case, the DevKit installation (tried and) did not discover where Ruby was installed. So I had to tell it where to find Ruby.</p>
-
-<p>Find the <code>C:\tools\DevKit2\config.yml</code> file and add the following line at the end (this is the location of your Ruby installation) (<em>note the forward slashes</em> and include the <code>-</code> at the beginning):</p>
-
-<pre><code>  - C:/tools/ruby21
-</code></pre>
-
-<p><strong>3. Install Octopress (which brings Jekyll with it)</strong></p>
-
-<p>Now, you can use the gem package manager to install the Octopress gem (i.e package).</p>
-
-<pre><code>  gem install octopress
-</code></pre>
-
-<p><strong>4. Setup a new blog using Octopress</strong></p>
-
-<p>The docs on Github for Octopress assumes a lot and (to me) wasn’t clear if you started with a <code>init</code> or <code>new</code>.</p>
-
-<p>It turns out that if you have nothing are you want to start a new Octopress blog, you can run:</p>
-
-<pre><code>  octopress new blog
-</code></pre>
-
-<p>This will create a directory called <code>blog</code>, setup Jekyll (as if  you ran <code>jekyll new</code>), and initialise Octopress.</p>
-
-<p><strong>5. Setup a Git repo for the Octopress blog</strong></p>
-
-<p>I left the Git setup till after I got Octopress setup locally - because this was something I already knew how to do, but I was (still am) not sure what the best way to setup the Octopress blog repo is for my needs.</p>
-
-<p>I didn’t want people to view my half-baked draft posts. So for now, I decided to setup another ‘remote’ for my git repo - on <a href="http://bitbucket.org">Bitbucket</a>, which is another good place to host your source repositories.</p>
-
-<p>So I set it up with:<br />
-   - A remote on Bitbucket to hold the blog source, settings etc.
-   - A remote on Github to publish the generated site to Github pages using Octopress</p>
-
-<p>Setting up Octopress deployment to Github involves running:</p>
-
-<pre><code>  octopress deploy init git https://github.com/krishna-nadiminti/krishna-nadiminti.github.io.git
-</code></pre>
-
-<p>from your blog directory.</p>
-
-<p>When trying to deploy to Github, at one point Octopress complained - and gave me some guidance on how to setup the repo. This happened when I was on the <code>master</code> branch with some uncommitted changes. Octopress said:</p>
-
-<pre><code>  You cannot deploy to the same branch you are working in.
-  This will overwrite the source for your site.
-</code></pre>
-
-<p>In the end, I’m not sure if this is the right way to set it up, but I have it working this way:</p>
-
-<pre><code>  git remote -v
-
-  deploy  https://github.com/krishna-nadiminti/krishna-nadiminti.github.io.git (fetch)
-  deploy  https://github.com/krishna-nadiminti/krishna-nadiminti.github.io.git (push)
-  origin  https://bitbucket.org/krishna_nadiminti/blog.git (fetch)
-  origin  https://bitbucket.org/krishna_nadiminti/blog.git (push)
-
-  git branch
-
-  master
-  * source
-</code></pre>
-
-<p>So, a remote called <code>deploy</code> pointing to Github which seems to be the default remote Octopress uses to publish changes, and <code>origin</code> is the source on Bitbucket, and a branch called <code>source</code> to keep the source files, and <code>master</code> for deployment.</p>
-
-<p>In my case I have the following in my <code>.gitignore</code>:</p>
-
-<pre><code>  _site
-  .sass-cache
-  .jekyll-metadata
-  _deploy.yml
-  .deploy
-</code></pre>
-
-<p>Now that Octopress is setup, let’s briefly look at the directory structure it created (note that I didn’t yet setup themes and other integrations):</p>
-
-<p><img src="/images/blog-dir.png" alt="Blog directory structure" /></p>
-
-<h4 id="publish-flow">Publish flow</h4>
-
-<p>The flow I’m using to get my blog posts published is:</p>
-
-<ul>
-  <li>Create/Edit a (new) page / post / draft using :
-    <ul>
-      <li>Octopress commands (octopress new draft / post / page)</li>
-      <li>Or using your favorite editor, create .md files in <code>_drafts</code> / <code>_posts</code> / <code>_pages</code> folders</li>
-    </ul>
-  </li>
-  <li>Add your post content using the markdown syntax to your <code>.md</code> file</li>
-  <li>Generate your blog using <code>jekyll build</code></li>
-  <li>If you created a draft, you need to <code>octopress publish _drafts/[file name of draft.md]</code> before you build it, to see it on the generated site</li>
-  <li>Save and preview by running <code>jekyll serve</code> (and browsing to <code>http://localhost:4000</code> - the default server jekyll runs up for previewing your blog)</li>
-  <li>Once you are happy, commit your changes to Git and deploy using <code>octopress deploy</code></li>
-  <li>Push to the remote where the source is (because Octopress just deploys the generated content under its <code>_sites</code> folder)</li>
-  <li>Enjoy, profit, get rich etc.</li>
-</ul>
-
-<p>I hope this post will help someone trying to setup Octopress on Windows.</p>
-
-<p>Till next time…take it easy!</p>
-
+                    <p class="post-summary">
+                    
+                      Blog more than you tweet. Static blogs are great if you are a developer. Octopress is a good platform to setup a technical blog, but you need to know a bit about Jekyll & Ruby first.
+                    
+                      <a class="post-read-more-link" href="/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/"class="btn btn-primary btn-sm">Read More</a>
+                    </p>
                   
                 
               </div>
@@ -309,11 +136,13 @@ So after considering various options, I settled on using Octopress.</p>
             <div class="col-md-1"></div>
          </div>
 
-    </div>
-    <div class="col-md-12 share-div">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-          
+        </div>
+
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              
 
 
 <div class="twitter_share">
@@ -332,11 +161,13 @@ So after considering various options, I settled on using Octopress.</p>
 
 
 
+            </div>
+            <div class="col-md-1"></div>
+          </div>
         </div>
-        <div class="col-md-1"></div>
-    </div>
-    <div class="col-md-12">
-    <!-- Footer -->
+
+        <div class="col-md-12">
+          <!-- Footer -->
             <div class="row footer">
               <div class="col-md-1"></div>
               <div class="col-md-10">
@@ -344,6 +175,8 @@ So after considering various options, I settled on using Octopress.</p>
                     <div class="col-md-3">
                       <h4>Recent Posts</h4>
                         <ul class="recent-posts">
+                        
+                          <li><a href="/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">An Experiment With Developing a Mobile App in the Open</a></li>
                         
                           <li><a href="/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/">Yet Another Getting Started Post - Blog with Octopress 3 on Windows 10</a></li>
                         
@@ -359,9 +192,10 @@ So after considering various options, I settled on using Octopress.</p>
             </div>
           <!-- End Footer -->
 
-    </div>
-    <div class="col-md-12">
-    			<div class="row end_footer">
+        </div>
+
+        <div class="col-md-12">
+        			<div class="row end_footer">
               <div class="col-md-1"></div>
               <div class="col-md-6">
                 <p>Copyright &copy; World of Dualities 2015</p>
@@ -370,8 +204,9 @@ So after considering various options, I settled on using Octopress.</p>
               <div class="col-md-1"></div>
             </div>
 
-    </div>
-        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        </div>
+
+            <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/prettify.js"></script>
     <script>
@@ -383,7 +218,7 @@ So after considering various options, I settled on using Octopress.</p>
     </script>
     <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_setAccount', 'UA-66680723-1']);
     _gaq.push(['_trackPageview']);
 
     (function() {
@@ -402,7 +237,8 @@ So after considering various options, I settled on using Octopress.</p>
       }
     </style>
 
-
+      </div>
+    </div>
   </body>
 
 </html>
