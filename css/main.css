@@ -5815,6 +5815,13 @@ p.center img {
 .post-read-more-link {
   margin-top: 15px; }
 
+div.aside {
+  background-color: #555;
+  color: #aaa;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
 /* Styling google translate UI */
 .goog-te-gadget-simple {
   border: none !important;

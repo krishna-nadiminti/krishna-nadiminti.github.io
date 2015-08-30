@@ -6,9 +6,61 @@
 </description>
     <link>http://krishna.nadiminti.me/</link>
     <atom:link href="http://krishna.nadiminti.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 30 Aug 2015 20:34:09 +1000</pubDate>
-    <lastBuildDate>Sun, 30 Aug 2015 20:34:09 +1000</lastBuildDate>
+    <pubDate>Sun, 30 Aug 2015 21:31:19 +1000</pubDate>
+    <lastBuildDate>Sun, 30 Aug 2015 21:31:19 +1000</lastBuildDate>
     <generator>Jekyll v3.0.0.pre.beta8</generator>
+    
+      <item>
+        <title>Week 0 - All About Money - The First X-Platform Release</title>
+        <description>&lt;div class=&quot;aside&quot;&gt;
+
+  &lt;p&gt;This post is part of a series on my journey rebuilding my app and learning a lot of new stuff.
+Other posts in the series:&lt;/p&gt;
+
+  &lt;h4 id=&quot;series-all-about-money---a-journey-to-build-a-mobile-app&quot;&gt;Series: All About Money - A journey to build a mobile app&lt;/h4&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/&quot;&gt;An experiment with developing a mobile app in the open&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h5 id=&quot;week-0&quot;&gt;Week 0&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;The state of the app&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The first x-platform release&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Thinking functional and DDD - the personal finance tracking domain&lt;!--(/2015/08/27/all-about-money-functional-ddd-personal-finance/)--&gt;&lt;/li&gt;
+    &lt;li&gt;The project structure &lt;!--(/2015/08/29/all-about-money-the-project-structure/)--&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h5 id=&quot;week-1&quot;&gt;Week 1&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;UI and wireframes&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Following on from the &lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;previous post&lt;/a&gt; where I discussed the current state of the app, I wanted to set out some goals I had for myself building the next iteration of the app.&lt;/p&gt;
+
+&lt;p&gt;For this next release, I’d like to take on some of the most requested features on my uservoice site, and take the opportunity to learn about technology (that I’ve been only playing with so far) enough to put it into production.&lt;/p&gt;
+
+&lt;h5 id=&quot;business-goals&quot;&gt;Business goals:&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;Create a version for phones to expand the market reach and satisfy a lot of users asking for it&lt;/li&gt;
+  &lt;li&gt;Expand out and tap into Android and iOS user-base&lt;/li&gt;
+  &lt;li&gt;Take advantage of the potential increase in the user-base with the Windows 10 wave&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;learning-goals&quot;&gt;Learning goals:&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;Cross-platform development using Xamarin (I’ve done this before, but within the constraints set by a client)&lt;/li&gt;
+  &lt;li&gt;Multi-form-factor development (Phones, tablets, hybrids, desktops, larger screens)&lt;/li&gt;
+  &lt;li&gt;F# (again I worked on this before, but not in a production system)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 25 Aug 2015 20:20:05 +1000</pubDate>
+        <link>http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-the-first-xplat-release/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-the-first-xplat-release/</guid>
+        
+        
+      </item>
     
       <item>
         <title>Week 0 - All About Money - The State Of The App</title>
@@ -17,6 +69,31 @@
 &lt;p&gt;It is also a way to share my experience building and maintaining the app so far and the kind of numbers I’m seeing as an indie app dev.&lt;/p&gt;
 
 &lt;!-- more --&gt;
+
+&lt;div class=&quot;aside&quot;&gt;
+
+  &lt;p&gt;This post is part of a series on my journey rebuilding my app and learning a lot of new stuff.
+Other posts in the series:&lt;/p&gt;
+
+  &lt;h4 id=&quot;series-all-about-money---a-journey-to-build-a-mobile-app&quot;&gt;Series: All About Money - A journey to build a mobile app&lt;/h4&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/&quot;&gt;An experiment with developing a mobile app in the open&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h5 id=&quot;week-0&quot;&gt;Week 0&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;The state of the app&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The first x-platform release&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Thinking functional and DDD - the personal finance tracking domain&lt;!--(/2015/08/27/all-about-money-functional-ddd-personal-finance/)--&gt;&lt;/li&gt;
+    &lt;li&gt;The project structure &lt;!--(/2015/08/29/all-about-money-the-project-structure/)--&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h5 id=&quot;week-1&quot;&gt;Week 1&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;UI and wireframes&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
 
 &lt;p&gt;The app has currently been in the Windows store for almost 3 years (at time of writing - 23 Aug 2015).&lt;/p&gt;
 
@@ -169,8 +246,34 @@ Currently there are about &lt;strong&gt;88&lt;/strong&gt; outstanding feature re
         <title>An Experiment With Developing a Mobile App in the Open</title>
         <description>&lt;p&gt;So, I’ve been developing this Windows 8.x ‘Metro’ app - &lt;a href=&quot;http://silveroakapps.com&quot;&gt;All About Money&lt;/a&gt; - for a while now (first released a version in late 2012).&lt;/p&gt;
 
-&lt;p&gt;It all started with me getting carried away with the Windows 8 hype cycle and being a .NET developer who’d already done a lot of XAMLing, I thought I’d checkout what WinRT and its version of XAML was about - and build an app to learn the ropes of mobile/touch-first development.
-&lt;!-- more --&gt;&lt;/p&gt;
+&lt;p&gt;It all started with me getting carried away with the Windows 8 hype cycle and being a .NET developer who’d already done a lot of XAMLing, I thought I’d checkout what WinRT and its version of XAML was about - and build an app to learn the ropes of mobile/touch-first development.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;div class=&quot;aside&quot;&gt;
+
+  &lt;p&gt;This post is part of a series on my journey rebuilding my app and learning a lot of new stuff.
+Other posts in the series:&lt;/p&gt;
+
+  &lt;h4 id=&quot;series-all-about-money---a-journey-to-build-a-mobile-app&quot;&gt;Series: All About Money - A journey to build a mobile app&lt;/h4&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/&quot;&gt;An experiment with developing a mobile app in the open&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h5 id=&quot;week-0&quot;&gt;Week 0&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;The state of the app&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The first x-platform release&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Thinking functional and DDD - the personal finance tracking domain&lt;!--(/2015/08/27/all-about-money-functional-ddd-personal-finance/)--&gt;&lt;/li&gt;
+    &lt;li&gt;The project structure &lt;!--(/2015/08/29/all-about-money-the-project-structure/)--&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h5 id=&quot;week-1&quot;&gt;Week 1&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;UI and wireframes&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
 
 &lt;p class=&quot;center&quot;&gt;&lt;img src=&quot;/images/AAM1-blue.jpg&quot; alt=&quot;All About Money&quot; /&gt;&lt;/p&gt;
 
