@@ -6,42 +6,9 @@
 </description>
     <link>http://krishna.nadiminti.me/</link>
     <atom:link href="http://krishna.nadiminti.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 30 Aug 2015 20:10:22 +1000</pubDate>
-    <lastBuildDate>Sun, 30 Aug 2015 20:10:22 +1000</lastBuildDate>
+    <pubDate>Sun, 30 Aug 2015 20:34:09 +1000</pubDate>
+    <lastBuildDate>Sun, 30 Aug 2015 20:34:09 +1000</lastBuildDate>
     <generator>Jekyll v3.0.0.pre.beta8</generator>
-    
-      <item>
-        <title>Week 0 - All About Money - The Project Structure</title>
-        <description>
-</description>
-        <pubDate>Sat, 29 Aug 2015 20:10:06 +1000</pubDate>
-        <link>http://krishna.nadiminti.me/2015/08/29/week-0-all-about-money-the-project-structure/</link>
-        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/29/week-0-all-about-money-the-project-structure/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Week 0 - All About Money - Thinking About Design - Funcational And Domain Driven</title>
-        <description>
-</description>
-        <pubDate>Thu, 27 Aug 2015 21:43:00 +1000</pubDate>
-        <link>http://krishna.nadiminti.me/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/</link>
-        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Week 0 - All About Money - Goals For The Next Release</title>
-        <description>
-</description>
-        <pubDate>Tue, 25 Aug 2015 20:20:05 +1000</pubDate>
-        <link>http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-goal-for-the-next-release/</link>
-        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-goal-for-the-next-release/</guid>
-        
-        
-      </item>
     
       <item>
         <title>Week 0 - All About Money - The State Of The App</title>
@@ -146,7 +113,7 @@ Currently there are about &lt;strong&gt;88&lt;/strong&gt; outstanding feature re
 
 &lt;p&gt;I’ve not done much with the app this past 12 months - so the average number of downloads per week has gone down significantly (except for a couple of peaks):&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/AllAboutMoney-Acquisitions-29Aug2015.jpg&quot; alt=&quot;Downloads per week - All About Money Aug 2015 - 12 months&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/AllAboutMoney-Acquisitions-29Aug2015.png&quot; alt=&quot;Downloads per week - All About Money Aug 2015 - 12 months&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The app has two in-app purchases:
 - Customisation (to let users add their own tags) [once-off purchase : 1.29 USD]
@@ -154,7 +121,7 @@ Currently there are about &lt;strong&gt;88&lt;/strong&gt; outstanding feature re
 
 &lt;p&gt;Since not many users use the Windows store, and not many people use a personal finance app in general - the revenue has been pretty low. In fact, it only ever made more than 500$ a month once: in Jan 2014. Here is a trend of how the number of in-app purchses looks like over the past 12 months…&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/InAppPurchases-29Aug2015.jpg&quot; alt=&quot;Revenue - All About Money - Aug 2015 - 12 months&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/InAppPurchases-29Aug2015.png&quot; alt=&quot;Revenue - All About Money - Aug 2015 - 12 months&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;(Unfortunately the graphs shown in the Windows store dashboard is pretty ugly (and not as useful) these days - it used to be better a year or so ago.)&lt;/p&gt;
 
