@@ -5,6 +5,42 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://krishna.nadiminti.me/2015/08/29/week-0-all-about-money-the-project-structure/</loc>
+    
+    <lastmod>2015-08-29T20:10:06+10:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://krishna.nadiminti.me/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/</loc>
+    
+    <lastmod>2015-08-27T21:43:00+10:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-goal-for-the-next-release/</loc>
+    
+    <lastmod>2015-08-25T20:20:05+10:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://krishna.nadiminti.me/2015/08/23/week-0-all-about-money-the-state-of-the-app/</loc>
+    
+    <lastmod>2015-08-23T20:30:05+10:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
     <loc>http://krishna.nadiminti.me/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/</loc>
     
     <lastmod>2015-08-18T21:33:02+10:00</lastmod>

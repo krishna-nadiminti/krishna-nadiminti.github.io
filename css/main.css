@@ -5876,6 +5876,15 @@ code {
 ul.recent-posts li {
   list-style: none; }
 
+table {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: monospace; }
+  table tr tbody td:first {
+    text-align: right; }
+  table tr th, table tr td {
+    padding: 5px; }
+
 /*OVERRIDES : Navbar styles copied just to override text colours*/
 .navbar-inverse {
   background-color: #008cba;

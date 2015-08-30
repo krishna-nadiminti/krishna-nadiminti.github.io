@@ -6,9 +6,197 @@
 </description>
     <link>http://krishna.nadiminti.me/</link>
     <atom:link href="http://krishna.nadiminti.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 25 Aug 2015 00:09:18 +1000</pubDate>
-    <lastBuildDate>Tue, 25 Aug 2015 00:09:18 +1000</lastBuildDate>
+    <pubDate>Sun, 30 Aug 2015 20:10:22 +1000</pubDate>
+    <lastBuildDate>Sun, 30 Aug 2015 20:10:22 +1000</lastBuildDate>
     <generator>Jekyll v3.0.0.pre.beta8</generator>
+    
+      <item>
+        <title>Week 0 - All About Money - The Project Structure</title>
+        <description>
+</description>
+        <pubDate>Sat, 29 Aug 2015 20:10:06 +1000</pubDate>
+        <link>http://krishna.nadiminti.me/2015/08/29/week-0-all-about-money-the-project-structure/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/29/week-0-all-about-money-the-project-structure/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Week 0 - All About Money - Thinking About Design - Funcational And Domain Driven</title>
+        <description>
+</description>
+        <pubDate>Thu, 27 Aug 2015 21:43:00 +1000</pubDate>
+        <link>http://krishna.nadiminti.me/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Week 0 - All About Money - Goals For The Next Release</title>
+        <description>
+</description>
+        <pubDate>Tue, 25 Aug 2015 20:20:05 +1000</pubDate>
+        <link>http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-goal-for-the-next-release/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-goal-for-the-next-release/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Week 0 - All About Money - The State Of The App</title>
+        <description>&lt;p&gt;Before I talk about where I plan to go and how I’m thinking of building the app, it might to be good to get a sense of what the journey has been so far and what the app looks like in the Windows store - since that will help in identifying some (self-imposed) constraints.&lt;/p&gt;
+
+&lt;p&gt;It is also a way to share my experience building and maintaining the app so far and the kind of numbers I’m seeing as an indie app dev.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;The app has currently been in the Windows store for almost 3 years (at time of writing - 23 Aug 2015).&lt;/p&gt;
+
+&lt;p&gt;As mentioned in a previous post - I had setup a uservoice site for the app - &lt;a href=&quot;http://allaboutmoney.uservoice.com&quot;&gt;http://allaboutmoney.uservoice.com&lt;/a&gt; very early on in the release cycle.
+Since then I’ve been getting lots of feature requests - way more than I can keep up with.
+Currently there are about &lt;strong&gt;88&lt;/strong&gt; outstanding feature requests of which I plan to do around 83.&lt;/p&gt;
+
+&lt;p&gt;Since the first release, I pushed out a number of updates:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1.&lt;/td&gt;
+      &lt;td&gt;Aug 30&lt;/td&gt;
+      &lt;td&gt;2012&lt;/td&gt;
+      &lt;td&gt;v.1.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2.&lt;/td&gt;
+      &lt;td&gt;Dec 03&lt;/td&gt;
+      &lt;td&gt;2012&lt;/td&gt;
+      &lt;td&gt;v.1.1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3.&lt;/td&gt;
+      &lt;td&gt;Jan 23&lt;/td&gt;
+      &lt;td&gt;2013&lt;/td&gt;
+      &lt;td&gt;v.1.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4.&lt;/td&gt;
+      &lt;td&gt;Mar 09&lt;/td&gt;
+      &lt;td&gt;2013&lt;/td&gt;
+      &lt;td&gt;v.1.4.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5.&lt;/td&gt;
+      &lt;td&gt;Mar 11&lt;/td&gt;
+      &lt;td&gt;2013&lt;/td&gt;
+      &lt;td&gt;v.1.4.1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6.&lt;/td&gt;
+      &lt;td&gt;Nov 11&lt;/td&gt;
+      &lt;td&gt;2013&lt;/td&gt;
+      &lt;td&gt;v.1.6.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7.&lt;/td&gt;
+      &lt;td&gt;Nov 26&lt;/td&gt;
+      &lt;td&gt;2013&lt;/td&gt;
+      &lt;td&gt;v.1.6.1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;8.&lt;/td&gt;
+      &lt;td&gt;Apr 21&lt;/td&gt;
+      &lt;td&gt;2014&lt;/td&gt;
+      &lt;td&gt;v.1.6.2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;9.&lt;/td&gt;
+      &lt;td&gt;May 04&lt;/td&gt;
+      &lt;td&gt;2014&lt;/td&gt;
+      &lt;td&gt;v.1.6.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;10.&lt;/td&gt;
+      &lt;td&gt;May 20&lt;/td&gt;
+      &lt;td&gt;2014&lt;/td&gt;
+      &lt;td&gt;v.1.6.4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;11.&lt;/td&gt;
+      &lt;td&gt;Jul 10&lt;/td&gt;
+      &lt;td&gt;2014&lt;/td&gt;
+      &lt;td&gt;v.1.6.5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;12.&lt;/td&gt;
+      &lt;td&gt;Jul 25&lt;/td&gt;
+      &lt;td&gt;2014&lt;/td&gt;
+      &lt;td&gt;v.1.6.6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;13.&lt;/td&gt;
+      &lt;td&gt;Jun 27&lt;/td&gt;
+      &lt;td&gt;2015&lt;/td&gt;
+      &lt;td&gt;v.1.8.1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;As of today (23 Aug 2015), the Windows store dashboard tells me the app has been downloaded over 100,000 times and has an average rating of almost &lt;strong&gt;4 stars&lt;/strong&gt; over 500 ratings.&lt;/p&gt;
+
+&lt;p&gt;I’ve not done much with the app this past 12 months - so the average number of downloads per week has gone down significantly (except for a couple of peaks):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/AllAboutMoney-Acquisitions-29Aug2015.jpg&quot; alt=&quot;Downloads per week - All About Money Aug 2015 - 12 months&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The app has two in-app purchases:
+- Customisation (to let users add their own tags) [once-off purchase : 1.29 USD]
+- Advanced reporting (to get nice graphs and summaries of transactions) [once-off purchase : 4.49 USD]&lt;/p&gt;
+
+&lt;p&gt;Since not many users use the Windows store, and not many people use a personal finance app in general - the revenue has been pretty low. In fact, it only ever made more than 500$ a month once: in Jan 2014. Here is a trend of how the number of in-app purchses looks like over the past 12 months…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/InAppPurchases-29Aug2015.jpg&quot; alt=&quot;Revenue - All About Money - Aug 2015 - 12 months&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;(Unfortunately the graphs shown in the Windows store dashboard is pretty ugly (and not as useful) these days - it used to be better a year or so ago.)&lt;/p&gt;
+
+&lt;p&gt;The app itself has a small group of regular/daily users - from my custom telemetry, I found the following:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/AllAboutMoney-29Aug2015-DailyUsers.png&quot; alt=&quot;Daily users - All About Money - Aug 2015 - 100 days&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;#&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Average # of users opening the app daily&lt;/td&gt;
+      &lt;td&gt;94&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Average # of crashes / errors daily&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Average # of new downloads daily&lt;/td&gt;
+      &lt;td&gt;76&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;So, given all this - one of my goals for the next version is to keep the existing users of my app happy, and to take them forward for the next version.&lt;/p&gt;
+
+&lt;p&gt;I’ll make another post talking about the goals for the next release.&lt;/p&gt;
+
+&lt;p&gt;If any of you indie app devs would like to see other stats / numbers or want to discuss these sort of aspects of app development, drop me a note.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 23 Aug 2015 20:30:05 +1000</pubDate>
+        <link>http://krishna.nadiminti.me/2015/08/23/week-0-all-about-money-the-state-of-the-app/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/23/week-0-all-about-money-the-state-of-the-app/</guid>
+        
+        
+      </item>
     
       <item>
         <title>An Experiment With Developing a Mobile App in the Open</title>
@@ -36,9 +224,16 @@ This was getting a bit bigger than just a toy app I developed for learning. Ther
 
 &lt;p&gt;Interested? Well join in, help / criticise / comment / learn / build / share and enjoy the ride!&lt;/p&gt;
 
-&lt;p&gt;[1] Based on a very scientific study of counting the number of people with Windows 8 tablets I saw on tram/train rides to work and in meetings.&lt;/p&gt;
+&lt;p&gt;
+&lt;sub&gt;
+[1] Based on a very scientific study of counting the number of people with Windows 8 tablets I saw on tram/train rides to work and in meetings.
+&lt;/sub&gt;
+&lt;br /&gt;
+&lt;sub&gt;
+[2] Yes, I know the app boom is over and indie devs don’t get rich writing apps.
+&lt;/sub&gt;
 
-&lt;p&gt;[2] Yes, I know the app boom is over and indie devs don’t get rich writing apps&lt;/p&gt;
+&lt;/p&gt;
 </description>
         <pubDate>Tue, 18 Aug 2015 21:33:02 +1000</pubDate>
         <link>http://krishna.nadiminti.me/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/</link>
