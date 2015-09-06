@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Week 0 - All About Money - The First X-Platform Release</title>
-  <meta name="description" content="For this next release, I’d like to take on some of the most requested features on my uservoice site, and take the opportunity to learn about technology (that...">
+  <title>An Experiment With Developing a Mobile App in the Open</title>
+  <meta name="description" content="So, I’ve been developing this Windows 8.x ‘Metro’ app - All About Money - for a while now (first released a version in late 2012).">
   <meta name="google-translate-customization" content="b9870a0c7376df54-aa35852016e6a5cc-ga0a0d80f6c171f17-e"></meta>
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://krishna.nadiminti.me/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/">
+  <link rel="canonical" href="http://krishna.nadiminti.me/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">
   <link href="/images/favicon.png" rel="icon">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="alternate" type="application/rss+xml" title="World of Dualities" href="http://krishna.nadiminti.me/feed.xml">
@@ -93,18 +93,20 @@
 	<div class="col-md-10">
 
 	  	
-	    <h1>Week 0 - All About Money - The First X-Platform Release</h1>
+	    <h1>An Experiment With Developing a Mobile App in the Open</h1>
 	    <div id="google_translate_element" style="padding-right: 27px;float: left;"></div><script type="text/javascript">
 			function googleTranslateElementInit() {
   				new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 				}
 		</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         
-	    <p class="post-meta">Aug 25, 2015</p>
+	    <p class="post-meta">Aug 18, 2015</p>
 
 	   
 	  	<article class="blog-post-small blog-post-content">
-	    	<p>For this next release, I’d like to take on some of the most requested features on my uservoice site, and take the opportunity to learn about technology (that I’ve been only playing with so far) enough to put it into production.</p>
+	    	<p>So, I’ve been developing this Windows 8.x ‘Metro’ app - <a href="http://silveroakapps.com">All About Money</a> - for a while now (first released a version in late 2012).</p>
+
+<p>It all started with me getting carried away with the Windows 8 hype cycle and being a .NET developer who’d already done a lot of XAMLing, I thought I’d checkout what WinRT and its version of XAML was about - and build an app to learn the ropes of mobile/touch-first development.</p>
 
 <!-- more -->
 
@@ -115,15 +117,15 @@
   <h4 id="series-all-about-money---a-journey-to-build-a-mobile-app">Series: All About Money - A journey to build a mobile app</h4>
 
   <ul>
-    <li><a href="/mobile/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">An experiment with developing a mobile app in the open</a></li>
+    <li><a href="/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">An experiment with developing a mobile app in the open</a></li>
   </ul>
 
   <h5 id="week-0">Week 0</h5>
   <ul>
-    <li><a href="/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/">The state of the app</a></li>
-    <li><a href="/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/">The goal: first x-platform release</a></li>
-    <li><a href="/development/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/">Thinking functional and DDD - in the personal finance tracking context</a></li>
-    <li><a href="/development/2015/08/29/week-0-all-about-money-the-project-structure/">The new Project structure</a></li>
+    <li><a href="/2015/08/23/week-0-all-about-money-the-state-of-the-app/">The state of the app</a></li>
+    <li><a href="/2015/08/25/week-0-all-about-money-the-first-xplat-release/">The goal: first x-platform release</a></li>
+    <li><a href="/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/">Thinking functional and DDD - in the personal finance tracking context</a></li>
+    <li><a href="/2015/08/29/week-0-all-about-money-the-project-structure/">The new Project structure</a></li>
     <li>Design of the existing app</li>
   </ul>
 
@@ -141,23 +143,35 @@
 
 </div>
 
-<p>Following on from the <a href="/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/">previous post</a> where I discussed the current state of the app, I wanted to set out some goals I had for myself building the next iteration of the app.</p>
+<p class="center"><img src="/images/AAM/AAM1-blue.jpg" alt="All About Money" /></p>
 
-<h5 id="business-goals">Business goals:</h5>
-<ul>
-  <li>Create a version for phones to expand the market reach and satisfy a lot of users asking for it</li>
-  <li>Expand out and tap into Android and iOS user-base</li>
-  <li>Take advantage of the potential increase in the user-base with the Windows 10 wave</li>
-</ul>
+<p>That went well (the learning, building and actually shipping it) - though I ended up spending a lot more time than I planned - on researching colour theory, UX design principles, design guidelines and so on. I got the first version out within 3-4 months in late 2012 and since it was one of the first (decent-looking - if I say so myself) personal finance apps in the store at that time - it got noticed and rose to the top 10 in the finance category and stayed there for a while. To be honest, there wasn’t much competition in the Win 8 store - atleast in the finance apps category for almost a year and a half. Even after that - I found that though my little app lacked many important features, people kept using / downloading it (I’d imagine that mostly because it is free!).</p>
 
-<h5 id="learning-goals">Learning goals:</h5>
-<ul>
-  <li>Cross-platform development using Xamarin (I’ve done this before, but within the constraints set by a client)</li>
-  <li>Multi-form-factor development (Phones, tablets, hybrids, desktops, larger screens)</li>
-  <li>F# (again I worked on this before, but not in a production system)</li>
-</ul>
+<p>Slowly I kept pushing out a few updates and within a year and a bit I noticed I’d already crossed 100K downloads!
+This was getting a bit bigger than just a toy app I developed for learning. There were actual people using it and asking for help.</p>
 
-<p>Next time, I’ll post some thoughts around design and re-modelling the domain and the backend.</p>
+<p>So I set up <a href="http://allaboutmoney.uservoice.com/">a Uservoice site for my app</a>, and saw people posting a whole bunch of feature requests. The requests poured in much quicker than I could develop them: after all this was just a side project I worked on when I felt like in the evenings. I’d also setup a Azure mobile service for giving me <em>real-time</em> crash data (again - partly to learn, and partly to get some customised analytics / crash info without having to wait for the crash dumps to appear in the Windows store developer portal).</p>
+
+<p>To help with the hosting of a site, and pay for some parts of the development cost like the app store registration etc, I introduced a couple of in-app purchases. People occasionally purchase those - but it hasn’t made me much beyond covering the services I was using (Azure, website hosting, etc).</p>
+
+<p>But recently, I’ve also been working a bit with Xamarin (at work for clients), and I thought I could do a better job of supporting users and actually pay for some nicer looking design / graphics etc. if I branch out and push out to a wider audience than the 12 users [1] in the world who use Windows 8 tablets.</p>
+
+<p>So I’m starting this experiment to develop this (semi-commercial [2]) app in a much more open way. I’ll post (most of the) source code on Github, my development plans on a <a href="https://trello.com/b/505JNtmG/all-about-money">public Trello board</a>, the feature requests are already open on Uservoice.</p>
+
+<p>I’m not sure what will come of it - but I hope to look back at this and think of the product development and software design process I am going through as an indie app developer - as having helped someone, anyone doing the same.</p>
+
+<p>Interested? Well join in, help / criticise / comment / learn / build / share and enjoy the ride!</p>
+
+<p>
+<sub>
+[1] Based on a very scientific study of counting the number of people with Windows 8 tablets I saw on tram/train rides to work and in meetings.
+</sub>
+<br />
+<sub>
+[2] Yes, I know the app boom is over and indie devs don’t get rich writing apps.
+</sub>
+
+</p>
 
 	  	</article>
 	  	
@@ -176,8 +190,8 @@
     
       
       // var disqus_developer = 1;
-      var disqus_identifier = 'http://krishna.nadiminti.me/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/';
-      var disqus_url = 'http://krishna.nadiminti.me/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/';
+      var disqus_identifier = 'http://krishna.nadiminti.me/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/';
+      var disqus_url = 'http://krishna.nadiminti.me/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/';
       var disqus_script = 'embed.js';
     
 
@@ -193,13 +207,13 @@
   <ul class="pager">
     
     <li class="previous"><a class="basic-alignment left"
-      href="/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/" title="Previous Post:
-      Week 0 - All About Money - The State Of The App">&laquo; Week 0 - All About Money - The State Of The App</a></li>
+      href="/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/" title="Previous Post:
+      Yet Another Getting Started Post - Blog with Octopress 3 on Windows 10">&laquo; Yet Another Getting Started Post - Blog with Octopress 3 on Windows 10</a></li>
     
     <!--li><a href="/blog/archives">Blog Archives</a></li-->
     
-    <li class="next"><a class="basic-alignment right" href="/development/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/"
-      title="Next Post: Week 0 - All About Money - Thinking About Design - Functional And Domain Driven">Week 0 - All About Money - Thinking About Design - Functional And Domain Driven
+    <li class="next"><a class="basic-alignment right" href="/2015/08/23/week-0-all-about-money-the-state-of-the-app/"
+      title="Next Post: Week 0 - All About Money - The State Of The App">Week 0 - All About Money - The State Of The App
       &raquo;</a></li>
     
   </ul>
@@ -247,13 +261,13 @@
                       <h4>Recent Posts</h4>
                         <ul class="recent-posts">
                         
-                          <li><a href="/development/2015/08/29/week-0-all-about-money-the-project-structure/">Week 0 - All About Money - The Project Structure</a></li>
+                          <li><a href="/2015/08/29/week-0-all-about-money-the-project-structure/">Week 0 - All About Money - The Project Structure</a></li>
                         
-                          <li><a href="/development/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/">Week 0 - All About Money - Thinking About Design - Functional And Domain Driven</a></li>
+                          <li><a href="/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/">Week 0 - All About Money - Thinking About Design - Functional And Domain Driven</a></li>
                         
-                          <li><a href="/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/">Week 0 - All About Money - The First X-Platform Release</a></li>
+                          <li><a href="/2015/08/25/week-0-all-about-money-the-first-xplat-release/">Week 0 - All About Money - The First X-Platform Release</a></li>
                         
-                          <li><a href="/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/">Week 0 - All About Money - The State Of The App</a></li>
+                          <li><a href="/2015/08/23/week-0-all-about-money-the-state-of-the-app/">Week 0 - All About Money - The State Of The App</a></li>
                         
                         </ul>
                     </div>

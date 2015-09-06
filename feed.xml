@@ -6,8 +6,8 @@
 </description>
     <link>http://krishna.nadiminti.me/</link>
     <atom:link href="http://krishna.nadiminti.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Sep 2015 19:44:33 +1000</pubDate>
-    <lastBuildDate>Sun, 06 Sep 2015 19:44:33 +1000</lastBuildDate>
+    <pubDate>Sun, 06 Sep 2015 20:35:51 +1000</pubDate>
+    <lastBuildDate>Sun, 06 Sep 2015 20:35:51 +1000</lastBuildDate>
     <generator>Jekyll v3.0.0.pre.beta8</generator>
     
       <item>
@@ -28,9 +28,9 @@
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;The state of the app&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The goal: first x-platform release&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - the personal finance tracking domain&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/2015/08/29/all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;[Design of the existing app]&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - in the personal finance tracking context&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/29/week-0-all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Design of the existing app&lt;/li&gt;
   &lt;/ul&gt;
 
   &lt;h5 id=&quot;week-1&quot;&gt;Week 1&lt;/h5&gt;
@@ -38,7 +38,7 @@
     &lt;li&gt;UI and wireframes&lt;/li&gt;
   &lt;/ul&gt;
 
-  &lt;p&gt;[… More to come …]&lt;/p&gt;
+  &lt;p&gt;&lt;sub&gt; …   more to come  … &lt;sub&gt;&lt;/sub&gt;&lt;/sub&gt;&lt;/p&gt;
 
   &lt;h5 id=&quot;week-n&quot;&gt;Week n&lt;/h5&gt;
   &lt;ul&gt;
@@ -49,7 +49,7 @@
 
 &lt;p&gt;Given I plan to target Windows, and Android for this next release, and I’m using Xamarin and MVVMCross, I’ve factored out the common code into PCLs (portable class libraries). As of now, my project structure looks like this:&lt;/p&gt;
 
-&lt;p class=&quot;center&quot;&gt;&lt;img src=&quot;/images/AAM/ProjectStructure-1.png&quot; alt=&quot;Initial Project Structure&quot; /&gt;&lt;/p&gt;
+&lt;p class=&quot;center&quot;&gt;&lt;img src=&quot;/images/AAM/Project-Structure-1.png&quot; alt=&quot;Initial Project Structure&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I’ve created the &lt;code&gt;Money.Windows.UI&lt;/code&gt; and &lt;code&gt;Money.Droid.UI&lt;/code&gt; projects - that represent the UI for the respective platforms (and includes the views for tablets and phones) - in C#, because I had a bunch of problems using the latest version of F# (v4.0 at the time of writing) with the latest version of Visual Studio (2015) and Xamarin (v 3.11.837). The tooling with Xamarin just didn’t support the latest F# targets in VS 2015, and VS doesn’t natively include F# project templates for creating WinRT XAML projects. (I’d imagine I could hack together something to make it work - but I’d lose a lot of tooling support - and for the UI aspects, I decided to continue using C# and get the support from better tools).&lt;/p&gt;
 
@@ -63,7 +63,7 @@
 
 &lt;p&gt;With this project structure, the current dependency graph looks as follows:&lt;/p&gt;
 
-&lt;p class=&quot;center&quot;&gt;&lt;img src=&quot;/images/AAM/ProjectDependencies-1.png&quot; alt=&quot;Initial Project Dependencies&quot; /&gt;&lt;/p&gt;
+&lt;p class=&quot;center&quot;&gt;&lt;img src=&quot;/images/AAM/Project-Dependencies-1.png&quot; alt=&quot;Initial Project Dependencies&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The UI projects will be the entry points into the app. The platform specific UI will call into services / view models from the common UI - which will then issue appropriate commands and queries that either directly interact with the data store or process the commands via the domain model to generate events which will be handled by classes in the data store to persist the event stream.&lt;/p&gt;
 
@@ -76,8 +76,8 @@
 &lt;p&gt;Eventually, I intend to do a comparison of the new language + architecture with the existing solution.&lt;/p&gt;
 </description>
         <pubDate>Sat, 29 Aug 2015 20:10:06 +1000</pubDate>
-        <link>http://krishna.nadiminti.me/development/2015/08/29/week-0-all-about-money-the-project-structure/</link>
-        <guid isPermaLink="true">http://krishna.nadiminti.me/development/2015/08/29/week-0-all-about-money-the-project-structure/</guid>
+        <link>http://krishna.nadiminti.me/2015/08/29/week-0-all-about-money-the-project-structure/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/29/week-0-all-about-money-the-project-structure/</guid>
         
         <category>architecture</category>
         
@@ -116,9 +116,9 @@
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;The state of the app&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The goal: first x-platform release&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - the personal finance tracking domain&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/2015/08/29/all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;[Design of the existing app]&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - in the personal finance tracking context&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/29/week-0-all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Design of the existing app&lt;/li&gt;
   &lt;/ul&gt;
 
   &lt;h5 id=&quot;week-1&quot;&gt;Week 1&lt;/h5&gt;
@@ -126,7 +126,7 @@
     &lt;li&gt;UI and wireframes&lt;/li&gt;
   &lt;/ul&gt;
 
-  &lt;p&gt;[… More to come …]&lt;/p&gt;
+  &lt;p&gt;&lt;sub&gt; …   more to come  … &lt;sub&gt;&lt;/sub&gt;&lt;/sub&gt;&lt;/p&gt;
 
   &lt;h5 id=&quot;week-n&quot;&gt;Week n&lt;/h5&gt;
   &lt;ul&gt;
@@ -280,8 +280,8 @@ I’d imagine some of these will evolve over time as I build more and more of th
 &lt;p&gt;I’d like to hear your thoughts / suggestions on what your design may look like…&lt;/p&gt;
 </description>
         <pubDate>Thu, 27 Aug 2015 21:43:00 +1000</pubDate>
-        <link>http://krishna.nadiminti.me/development/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/</link>
-        <guid isPermaLink="true">http://krishna.nadiminti.me/development/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/</guid>
+        <link>http://krishna.nadiminti.me/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/</guid>
         
         <category>DDD</category>
         
@@ -314,9 +314,9 @@ I’d imagine some of these will evolve over time as I build more and more of th
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;The state of the app&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The goal: first x-platform release&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - the personal finance tracking domain&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/2015/08/29/all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;[Design of the existing app]&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - in the personal finance tracking context&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/29/week-0-all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Design of the existing app&lt;/li&gt;
   &lt;/ul&gt;
 
   &lt;h5 id=&quot;week-1&quot;&gt;Week 1&lt;/h5&gt;
@@ -324,7 +324,7 @@ I’d imagine some of these will evolve over time as I build more and more of th
     &lt;li&gt;UI and wireframes&lt;/li&gt;
   &lt;/ul&gt;
 
-  &lt;p&gt;[… More to come …]&lt;/p&gt;
+  &lt;p&gt;&lt;sub&gt; …   more to come  … &lt;sub&gt;&lt;/sub&gt;&lt;/sub&gt;&lt;/p&gt;
 
   &lt;h5 id=&quot;week-n&quot;&gt;Week n&lt;/h5&gt;
   &lt;ul&gt;
@@ -333,7 +333,7 @@ I’d imagine some of these will evolve over time as I build more and more of th
 
 &lt;/div&gt;
 
-&lt;p&gt;Following on from the &lt;a href=&quot;/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;previous post&lt;/a&gt; where I discussed the current state of the app, I wanted to set out some goals I had for myself building the next iteration of the app.&lt;/p&gt;
+&lt;p&gt;Following on from the &lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;previous post&lt;/a&gt; where I discussed the current state of the app, I wanted to set out some goals I had for myself building the next iteration of the app.&lt;/p&gt;
 
 &lt;h5 id=&quot;business-goals&quot;&gt;Business goals:&lt;/h5&gt;
 &lt;ul&gt;
@@ -352,8 +352,8 @@ I’d imagine some of these will evolve over time as I build more and more of th
 &lt;p&gt;Next time, I’ll post some thoughts around design and re-modelling the domain and the backend.&lt;/p&gt;
 </description>
         <pubDate>Tue, 25 Aug 2015 20:20:05 +1000</pubDate>
-        <link>http://krishna.nadiminti.me/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/</link>
-        <guid isPermaLink="true">http://krishna.nadiminti.me/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/</guid>
+        <link>http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-the-first-xplat-release/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-the-first-xplat-release/</guid>
         
         <category>mobile</category>
         
@@ -388,9 +388,9 @@ I’d imagine some of these will evolve over time as I build more and more of th
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;The state of the app&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The goal: first x-platform release&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - the personal finance tracking domain&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/2015/08/29/all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;[Design of the existing app]&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - in the personal finance tracking context&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/29/week-0-all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Design of the existing app&lt;/li&gt;
   &lt;/ul&gt;
 
   &lt;h5 id=&quot;week-1&quot;&gt;Week 1&lt;/h5&gt;
@@ -398,7 +398,7 @@ I’d imagine some of these will evolve over time as I build more and more of th
     &lt;li&gt;UI and wireframes&lt;/li&gt;
   &lt;/ul&gt;
 
-  &lt;p&gt;[… More to come …]&lt;/p&gt;
+  &lt;p&gt;&lt;sub&gt; …   more to come  … &lt;sub&gt;&lt;/sub&gt;&lt;/sub&gt;&lt;/p&gt;
 
   &lt;h5 id=&quot;week-n&quot;&gt;Week n&lt;/h5&gt;
   &lt;ul&gt;
@@ -548,8 +548,8 @@ Currently there are about &lt;strong&gt;88&lt;/strong&gt; outstanding feature re
 &lt;p&gt;If any of you indie app devs would like to see other stats / numbers or want to discuss these sort of aspects of app development, drop me a note.&lt;/p&gt;
 </description>
         <pubDate>Sun, 23 Aug 2015 20:30:05 +1000</pubDate>
-        <link>http://krishna.nadiminti.me/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/</link>
-        <guid isPermaLink="true">http://krishna.nadiminti.me/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/</guid>
+        <link>http://krishna.nadiminti.me/2015/08/23/week-0-all-about-money-the-state-of-the-app/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/23/week-0-all-about-money-the-state-of-the-app/</guid>
         
         <category>mobile</category>
         
@@ -584,9 +584,9 @@ Currently there are about &lt;strong&gt;88&lt;/strong&gt; outstanding feature re
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;The state of the app&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The goal: first x-platform release&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - the personal finance tracking domain&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/2015/08/29/all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;[Design of the existing app]&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - in the personal finance tracking context&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/29/week-0-all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Design of the existing app&lt;/li&gt;
   &lt;/ul&gt;
 
   &lt;h5 id=&quot;week-1&quot;&gt;Week 1&lt;/h5&gt;
@@ -594,7 +594,7 @@ Currently there are about &lt;strong&gt;88&lt;/strong&gt; outstanding feature re
     &lt;li&gt;UI and wireframes&lt;/li&gt;
   &lt;/ul&gt;
 
-  &lt;p&gt;[… More to come …]&lt;/p&gt;
+  &lt;p&gt;&lt;sub&gt; …   more to come  … &lt;sub&gt;&lt;/sub&gt;&lt;/sub&gt;&lt;/p&gt;
 
   &lt;h5 id=&quot;week-n&quot;&gt;Week n&lt;/h5&gt;
   &lt;ul&gt;
@@ -634,8 +634,8 @@ This was getting a bit bigger than just a toy app I developed for learning. Ther
 &lt;/p&gt;
 </description>
         <pubDate>Tue, 18 Aug 2015 21:33:02 +1000</pubDate>
-        <link>http://krishna.nadiminti.me/mobile/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/</link>
-        <guid isPermaLink="true">http://krishna.nadiminti.me/mobile/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/</guid>
+        <link>http://krishna.nadiminti.me/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/</guid>
         
         <category>mobile</category>
         
@@ -847,8 +847,8 @@ So after considering various options, I settled on using Octopress.&lt;/p&gt;
 &lt;p&gt;Till next time…take it easy!&lt;/p&gt;
 </description>
         <pubDate>Mon, 17 Aug 2015 22:26:12 +1000</pubDate>
-        <link>http://krishna.nadiminti.me/blogging/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/</link>
-        <guid isPermaLink="true">http://krishna.nadiminti.me/blogging/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/</guid>
+        <link>http://krishna.nadiminti.me/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/</guid>
         
         <category>github</category>
         

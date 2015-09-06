@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Week 0 - All About Money - The Project Structure</title>
-  <meta name="description" content="So far in this series, I’ve been talking about concepts related to re-building my mobile app - the why, what and how - and haven’t shown how I’d start implem...">
+  <title>Week 0 - All About Money - The First X-Platform Release</title>
+  <meta name="description" content="For this next release, I’d like to take on some of the most requested features on my uservoice site, and take the opportunity to learn about technology (that...">
   <meta name="google-translate-customization" content="b9870a0c7376df54-aa35852016e6a5cc-ga0a0d80f6c171f17-e"></meta>
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://krishna.nadiminti.me/development/2015/08/29/week-0-all-about-money-the-project-structure/">
+  <link rel="canonical" href="http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-the-first-xplat-release/">
   <link href="/images/favicon.png" rel="icon">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="alternate" type="application/rss+xml" title="World of Dualities" href="http://krishna.nadiminti.me/feed.xml">
@@ -93,18 +93,20 @@
 	<div class="col-md-10">
 
 	  	
-	    <h1>Week 0 - All About Money - The Project Structure</h1>
+	    <h1>Week 0 - All About Money - The First X-Platform Release</h1>
 	    <div id="google_translate_element" style="padding-right: 27px;float: left;"></div><script type="text/javascript">
 			function googleTranslateElementInit() {
   				new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 				}
 		</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         
-	    <p class="post-meta">Aug 29, 2015</p>
+	    <p class="post-meta">Aug 25, 2015</p>
 
 	   
 	  	<article class="blog-post-small blog-post-content">
-	    	<p>So far in this series, I’ve been talking about concepts related to re-building my mobile app - the why, what and how - and haven’t shown how I’d start implementing it. This post is about just that - the project/solution structure and how I’ve set it up in Visual Studio so I can build the rest of the app.</p>
+	    	<p>For this next release, I’d like to take on some of the most requested features on my uservoice site, and take the opportunity to learn about technology (that I’ve been only playing with so far) enough to put it into production.</p>
+
+<!-- more -->
 
 <div class="aside">
 
@@ -113,15 +115,15 @@
   <h4 id="series-all-about-money---a-journey-to-build-a-mobile-app">Series: All About Money - A journey to build a mobile app</h4>
 
   <ul>
-    <li><a href="/mobile/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">An experiment with developing a mobile app in the open</a></li>
+    <li><a href="/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">An experiment with developing a mobile app in the open</a></li>
   </ul>
 
   <h5 id="week-0">Week 0</h5>
   <ul>
-    <li><a href="/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/">The state of the app</a></li>
-    <li><a href="/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/">The goal: first x-platform release</a></li>
-    <li><a href="/development/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/">Thinking functional and DDD - in the personal finance tracking context</a></li>
-    <li><a href="/development/2015/08/29/week-0-all-about-money-the-project-structure/">The new Project structure</a></li>
+    <li><a href="/2015/08/23/week-0-all-about-money-the-state-of-the-app/">The state of the app</a></li>
+    <li><a href="/2015/08/25/week-0-all-about-money-the-first-xplat-release/">The goal: first x-platform release</a></li>
+    <li><a href="/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/">Thinking functional and DDD - in the personal finance tracking context</a></li>
+    <li><a href="/2015/08/29/week-0-all-about-money-the-project-structure/">The new Project structure</a></li>
     <li>Design of the existing app</li>
   </ul>
 
@@ -139,33 +141,23 @@
 
 </div>
 
-<p>Given I plan to target Windows, and Android for this next release, and I’m using Xamarin and MVVMCross, I’ve factored out the common code into PCLs (portable class libraries). As of now, my project structure looks like this:</p>
+<p>Following on from the <a href="/2015/08/23/week-0-all-about-money-the-state-of-the-app/">previous post</a> where I discussed the current state of the app, I wanted to set out some goals I had for myself building the next iteration of the app.</p>
 
-<p class="center"><img src="/images/AAM/Project-Structure-1.png" alt="Initial Project Structure" /></p>
+<h5 id="business-goals">Business goals:</h5>
+<ul>
+  <li>Create a version for phones to expand the market reach and satisfy a lot of users asking for it</li>
+  <li>Expand out and tap into Android and iOS user-base</li>
+  <li>Take advantage of the potential increase in the user-base with the Windows 10 wave</li>
+</ul>
 
-<p>I’ve created the <code>Money.Windows.UI</code> and <code>Money.Droid.UI</code> projects - that represent the UI for the respective platforms (and includes the views for tablets and phones) - in C#, because I had a bunch of problems using the latest version of F# (v4.0 at the time of writing) with the latest version of Visual Studio (2015) and Xamarin (v 3.11.837). The tooling with Xamarin just didn’t support the latest F# targets in VS 2015, and VS doesn’t natively include F# project templates for creating WinRT XAML projects. (I’d imagine I could hack together something to make it work - but I’d lose a lot of tooling support - and for the UI aspects, I decided to continue using C# and get the support from better tools).</p>
+<h5 id="learning-goals">Learning goals:</h5>
+<ul>
+  <li>Cross-platform development using Xamarin (I’ve done this before, but within the constraints set by a client)</li>
+  <li>Multi-form-factor development (Phones, tablets, hybrids, desktops, larger screens)</li>
+  <li>F# (again I worked on this before, but not in a production system)</li>
+</ul>
 
-<p>The <code>Money.Domain</code> project contains the domain model - for the command-side of CQRS and the intent is to have the command handlers and the domain events in this project.</p>
-
-<p>The <code>Money.Data</code> project is where I plan to add the event handlers which store the data as a stream of events to a simple JSON file store (looking at <a href="https://github.com/NEventStore/NEventStore">NEventStore</a> for this - but it lacks PCL support; I might have to add it in if possible without distracting me too much from this project);.</p>
-
-<p>I have a data generation aspect - where I generate fake/demo data (possible some TransactionCreated events) - which will serve as the initial starting point for users trying out the app in the ‘demo’ mode where it already shows various screens filled in with some canned data. The code for this will probably live in the Money.Data project.</p>
-
-<p>The <code>Money.Queries</code> project is for the read-side of CQRS. I’m not sure if it is worth separating the read and write sides - but it helps me avoid accidentally falling back to regular N-tier style design where reading/writing often tends to share the same classes to interact with the data store.</p>
-
-<p>With this project structure, the current dependency graph looks as follows:</p>
-
-<p class="center"><img src="/images/AAM/Project-Dependencies-1.png" alt="Initial Project Dependencies" /></p>
-
-<p>The UI projects will be the entry points into the app. The platform specific UI will call into services / view models from the common UI - which will then issue appropriate commands and queries that either directly interact with the data store or process the commands via the domain model to generate events which will be handled by classes in the data store to persist the event stream.</p>
-
-<p>With this structure in place, I can now proceed to build out the rest of the application. I do want to reuse a lot of the UI elements and UI-related infrastructure code from the previous version of the solution (the Windows 8 app). Also, a lot of the read-side code will probably be just a straight port from C# to F# - given the C# code in that area is already portable (as in PCL) and written in a functional-style.</p>
-
-<p>In the next post, I’ll describe the project structure of the existing solution to put future posts in context - whenever I refer to code-snippets / classes from the existing solution.</p>
-
-<p>Soon, I also plan to push the code to github, so those following the series can look at the code as well.</p>
-
-<p>Eventually, I intend to do a comparison of the new language + architecture with the existing solution.</p>
+<p>Next time, I’ll post some thoughts around design and re-modelling the domain and the backend.</p>
 
 	  	</article>
 	  	
@@ -184,8 +176,8 @@
     
       
       // var disqus_developer = 1;
-      var disqus_identifier = 'http://krishna.nadiminti.me/development/2015/08/29/week-0-all-about-money-the-project-structure/';
-      var disqus_url = 'http://krishna.nadiminti.me/development/2015/08/29/week-0-all-about-money-the-project-structure/';
+      var disqus_identifier = 'http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-the-first-xplat-release/';
+      var disqus_url = 'http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-the-first-xplat-release/';
       var disqus_script = 'embed.js';
     
 
@@ -201,10 +193,14 @@
   <ul class="pager">
     
     <li class="previous"><a class="basic-alignment left"
-      href="/development/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/" title="Previous Post:
-      Week 0 - All About Money - Thinking About Design - Functional And Domain Driven">&laquo; Week 0 - All About Money - Thinking About Design - Functional And Domain Driven</a></li>
+      href="/2015/08/23/week-0-all-about-money-the-state-of-the-app/" title="Previous Post:
+      Week 0 - All About Money - The State Of The App">&laquo; Week 0 - All About Money - The State Of The App</a></li>
     
     <!--li><a href="/blog/archives">Blog Archives</a></li-->
+    
+    <li class="next"><a class="basic-alignment right" href="/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/"
+      title="Next Post: Week 0 - All About Money - Thinking About Design - Functional And Domain Driven">Week 0 - All About Money - Thinking About Design - Functional And Domain Driven
+      &raquo;</a></li>
     
   </ul>
 
@@ -251,13 +247,13 @@
                       <h4>Recent Posts</h4>
                         <ul class="recent-posts">
                         
-                          <li><a href="/development/2015/08/29/week-0-all-about-money-the-project-structure/">Week 0 - All About Money - The Project Structure</a></li>
+                          <li><a href="/2015/08/29/week-0-all-about-money-the-project-structure/">Week 0 - All About Money - The Project Structure</a></li>
                         
-                          <li><a href="/development/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/">Week 0 - All About Money - Thinking About Design - Functional And Domain Driven</a></li>
+                          <li><a href="/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/">Week 0 - All About Money - Thinking About Design - Functional And Domain Driven</a></li>
                         
-                          <li><a href="/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/">Week 0 - All About Money - The First X-Platform Release</a></li>
+                          <li><a href="/2015/08/25/week-0-all-about-money-the-first-xplat-release/">Week 0 - All About Money - The First X-Platform Release</a></li>
                         
-                          <li><a href="/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/">Week 0 - All About Money - The State Of The App</a></li>
+                          <li><a href="/2015/08/23/week-0-all-about-money-the-state-of-the-app/">Week 0 - All About Money - The State Of The App</a></li>
                         
                         </ul>
                     </div>
