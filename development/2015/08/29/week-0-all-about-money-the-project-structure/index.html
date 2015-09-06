@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>An Experiment With Developing a Mobile App in the Open</title>
-  <meta name="description" content="So, I’ve been developing this Windows 8.x ‘Metro’ app - All About Money - for a while now (first released a version in late 2012).">
+  <title>Week 0 - All About Money - The Project Structure</title>
+  <meta name="description" content="So far in this series, I’ve been talking about concepts related to re-building my mobile app - the why, what and how - and haven’t shown how I’d start implem...">
   <meta name="google-translate-customization" content="b9870a0c7376df54-aa35852016e6a5cc-ga0a0d80f6c171f17-e"></meta>
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://krishna.nadiminti.me/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">
+  <link rel="canonical" href="http://krishna.nadiminti.me/development/2015/08/29/week-0-all-about-money-the-project-structure/">
   <link href="/images/favicon.png" rel="icon">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="alternate" type="application/rss+xml" title="World of Dualities" href="http://krishna.nadiminti.me/feed.xml">
@@ -93,22 +93,18 @@
 	<div class="col-md-10">
 
 	  	
-	    <h1>An Experiment With Developing a Mobile App in the Open</h1>
+	    <h1>Week 0 - All About Money - The Project Structure</h1>
 	    <div id="google_translate_element" style="padding-right: 27px;float: left;"></div><script type="text/javascript">
 			function googleTranslateElementInit() {
   				new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 				}
 		</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         
-	    <p class="post-meta">Aug 18, 2015</p>
+	    <p class="post-meta">Aug 29, 2015</p>
 
 	   
 	  	<article class="blog-post-small blog-post-content">
-	    	<p>So, I’ve been developing this Windows 8.x ‘Metro’ app - <a href="http://silveroakapps.com">All About Money</a> - for a while now (first released a version in late 2012).</p>
-
-<p>It all started with me getting carried away with the Windows 8 hype cycle and being a .NET developer who’d already done a lot of XAMLing, I thought I’d checkout what WinRT and its version of XAML was about - and build an app to learn the ropes of mobile/touch-first development.</p>
-
-<!-- more -->
+	    	<p>So far in this series, I’ve been talking about concepts related to re-building my mobile app - the why, what and how - and haven’t shown how I’d start implementing it. This post is about just that - the project/solution structure and how I’ve set it up in Visual Studio so I can build the rest of the app.</p>
 
 <div class="aside">
 
@@ -117,52 +113,59 @@
   <h4 id="series-all-about-money---a-journey-to-build-a-mobile-app">Series: All About Money - A journey to build a mobile app</h4>
 
   <ul>
-    <li><a href="/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">An experiment with developing a mobile app in the open</a></li>
+    <li><a href="/mobile/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">An experiment with developing a mobile app in the open</a></li>
   </ul>
 
   <h5 id="week-0">Week 0</h5>
   <ul>
-    <li><a href="/2015/08/23/week-0-all-about-money-the-state-of-the-app/">The state of the app</a></li>
-    <li><a href="/2015/08/25/week-0-all-about-money-the-first-xplat-release/">The first x-platform release</a></li>
-    <li>Thinking functional and DDD - the personal finance tracking domain<!--(/2015/08/27/all-about-money-functional-ddd-personal-finance/)--></li>
-    <li>The project structure <!--(/2015/08/29/all-about-money-the-project-structure/)--></li>
+    <li><a href="/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/">The state of the app</a></li>
+    <li><a href="/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/">The goal: first x-platform release</a></li>
+    <li><a href="/development/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/">Thinking functional and DDD - in the personal finance tracking context</a></li>
+    <li><a href="/development/2015/08/29/week-0-all-about-money-the-project-structure/">The new Project structure</a></li>
+    <li>Design of the existing app</li>
   </ul>
 
   <h5 id="week-1">Week 1</h5>
   <ul>
     <li>UI and wireframes</li>
   </ul>
+
+  <p><sub> …   more to come  … <sub></sub></sub></p>
+
+  <h5 id="week-n">Week n</h5>
+  <ul>
+    <li>The final push to release</li>
+  </ul>
+
 </div>
 
-<p class="center"><img src="/images/AAM1-blue.jpg" alt="All About Money" /></p>
+<p>Given I plan to target Windows, and Android for this next release, and I’m using Xamarin and MVVMCross, I’ve factored out the common code into PCLs (portable class libraries). As of now, my project structure looks like this:</p>
 
-<p>That went well (the learning, building and actually shipping it) - though I ended up spending a lot more time than I planned - on researching colour theory, UX design principles, design guidelines and so on. I got the first version out within 3-4 months in late 2012 and since it was one of the first (decent-looking - if I say so myself) personal finance apps in the store at that time - it got noticed and rose to the top 10 in the finance category and stayed there for a while. To be honest, there wasn’t much competition in the Win 8 store - atleast in the finance apps category for almost a year and a half. Even after that - I found that though my little app lacked many important features, people kept using / downloading it (I’d imagine that mostly because it is free!).</p>
+<p class="center"><img src="/images/AAM/Project-Structure-1.png" alt="Initial Project Structure" /></p>
 
-<p>Slowly I kept pushing out a few updates and within a year and a bit I noticed I’d already crossed 100K downloads!
-This was getting a bit bigger than just a toy app I developed for learning. There were actual people using it and asking for help.</p>
+<p>I’ve created the <code>Money.Windows.UI</code> and <code>Money.Droid.UI</code> projects - that represent the UI for the respective platforms (and includes the views for tablets and phones) - in C#, because I had a bunch of problems using the latest version of F# (v4.0 at the time of writing) with the latest version of Visual Studio (2015) and Xamarin (v 3.11.837). The tooling with Xamarin just didn’t support the latest F# targets in VS 2015, and VS doesn’t natively include F# project templates for creating WinRT XAML projects. (I’d imagine I could hack together something to make it work - but I’d lose a lot of tooling support - and for the UI aspects, I decided to continue using C# and get the support from better tools).</p>
 
-<p>So I set up <a href="http://allaboutmoney.uservoice.com/">a Uservoice site for my app</a>, and saw people posting a whole bunch of feature requests. The requests poured in much quicker than I could develop them: after all this was just a side project I worked on when I felt like in the evenings. I’d also setup a Azure mobile service for giving me <em>real-time</em> crash data (again - partly to learn, and partly to get some customised analytics / crash info without having to wait for the crash dumps to appear in the Windows store developer portal).</p>
+<p>The <code>Money.Domain</code> project contains the domain model - for the command-side of CQRS and the intent is to have the command handlers and the domain events in this project.</p>
 
-<p>To help with the hosting of a site, and pay for some parts of the development cost like the app store registration etc, I introduced a couple of in-app purchases. People occasionally purchase those - but it hasn’t made me much beyond covering the services I was using (Azure, website hosting, etc).</p>
+<p>The <code>Money.Data</code> project is where I plan to add the event handlers which store the data as a stream of events to a simple JSON file store (looking at <a href="https://github.com/NEventStore/NEventStore">NEventStore</a> for this - but it lacks PCL support; I might have to add it in if possible without distracting me too much from this project);.</p>
 
-<p>But recently, I’ve also been working a bit with Xamarin (at work for clients), and I thought I could do a better job of supporting users and actually pay for some nicer looking design / graphics etc. if I branch out and push out to a wider audience than the 12 users [1] in the world who use Windows 8 tablets.</p>
+<p>I have a data generation aspect - where I generate fake/demo data (possible some TransactionCreated events) - which will serve as the initial starting point for users trying out the app in the ‘demo’ mode where it already shows various screens filled in with some canned data. The code for this will probably live in the Money.Data project.</p>
 
-<p>So I’m starting this experiment to develop this (semi-commercial [2]) app in a much more open way. I’ll post (most of the) source code on Github, my development plans on a <a href="https://trello.com/b/505JNtmG/all-about-money">public Trello board</a>, the feature requests are already open on Uservoice.</p>
+<p>The <code>Money.Queries</code> project is for the read-side of CQRS. I’m not sure if it is worth separating the read and write sides - but it helps me avoid accidentally falling back to regular N-tier style design where reading/writing often tends to share the same classes to interact with the data store.</p>
 
-<p>I’m not sure what will come of it - but I hope to look back at this and think of the product development and software design process I am going through as an indie app developer - as having helped someone, anyone doing the same.</p>
+<p>With this project structure, the current dependency graph looks as follows:</p>
 
-<p>Interested? Well join in, help / criticise / comment / learn / build / share and enjoy the ride!</p>
+<p class="center"><img src="/images/AAM/Project-Dependencies-1.png" alt="Initial Project Dependencies" /></p>
 
-<p>
-<sub>
-[1] Based on a very scientific study of counting the number of people with Windows 8 tablets I saw on tram/train rides to work and in meetings.
-</sub>
-<br />
-<sub>
-[2] Yes, I know the app boom is over and indie devs don’t get rich writing apps.
-</sub>
+<p>The UI projects will be the entry points into the app. The platform specific UI will call into services / view models from the common UI - which will then issue appropriate commands and queries that either directly interact with the data store or process the commands via the domain model to generate events which will be handled by classes in the data store to persist the event stream.</p>
 
-</p>
+<p>With this structure in place, I can now proceed to build out the rest of the application. I do want to reuse a lot of the UI elements and UI-related infrastructure code from the previous version of the solution (the Windows 8 app). Also, a lot of the read-side code will probably be just a straight port from C# to F# - given the C# code in that area is already portable (as in PCL) and written in a functional-style.</p>
+
+<p>In the next post, I’ll describe the project structure of the existing solution to put future posts in context - whenever I refer to code-snippets / classes from the existing solution.</p>
+
+<p>Soon, I also plan to push the code to github, so those following the series can look at the code as well.</p>
+
+<p>Eventually, I intend to do a comparison of the new language + architecture with the existing solution.</p>
 
 	  	</article>
 	  	
@@ -181,8 +184,8 @@ This was getting a bit bigger than just a toy app I developed for learning. Ther
     
       
       // var disqus_developer = 1;
-      var disqus_identifier = 'http://krishna.nadiminti.me/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/';
-      var disqus_url = 'http://krishna.nadiminti.me/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/';
+      var disqus_identifier = 'http://krishna.nadiminti.me/development/2015/08/29/week-0-all-about-money-the-project-structure/';
+      var disqus_url = 'http://krishna.nadiminti.me/development/2015/08/29/week-0-all-about-money-the-project-structure/';
       var disqus_script = 'embed.js';
     
 
@@ -198,14 +201,10 @@ This was getting a bit bigger than just a toy app I developed for learning. Ther
   <ul class="pager">
     
     <li class="previous"><a class="basic-alignment left"
-      href="/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/" title="Previous Post:
-      Yet Another Getting Started Post - Blog with Octopress 3 on Windows 10">&laquo; Yet Another Getting Started Post - Blog with Octopress 3 on Windows 10</a></li>
+      href="/development/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/" title="Previous Post:
+      Week 0 - All About Money - Thinking About Design - Functional And Domain Driven">&laquo; Week 0 - All About Money - Thinking About Design - Functional And Domain Driven</a></li>
     
     <!--li><a href="/blog/archives">Blog Archives</a></li-->
-    
-    <li class="next"><a class="basic-alignment right" href="/2015/08/23/week-0-all-about-money-the-state-of-the-app/"
-      title="Next Post: Week 0 - All About Money - The State Of The App">Week 0 - All About Money - The State Of The App
-      &raquo;</a></li>
     
   </ul>
 
@@ -252,13 +251,13 @@ This was getting a bit bigger than just a toy app I developed for learning. Ther
                       <h4>Recent Posts</h4>
                         <ul class="recent-posts">
                         
-                          <li><a href="/2015/08/25/week-0-all-about-money-the-first-xplat-release/">Week 0 - All About Money - The First X-Platform Release</a></li>
+                          <li><a href="/development/2015/08/29/week-0-all-about-money-the-project-structure/">Week 0 - All About Money - The Project Structure</a></li>
                         
-                          <li><a href="/2015/08/23/week-0-all-about-money-the-state-of-the-app/">Week 0 - All About Money - The State Of The App</a></li>
+                          <li><a href="/development/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/">Week 0 - All About Money - Thinking About Design - Functional And Domain Driven</a></li>
                         
-                          <li><a href="/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">An Experiment With Developing a Mobile App in the Open</a></li>
+                          <li><a href="/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/">Week 0 - All About Money - The First X-Platform Release</a></li>
                         
-                          <li><a href="/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/">Yet Another Getting Started Post - Blog with Octopress 3 on Windows 10</a></li>
+                          <li><a href="/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/">Week 0 - All About Money - The State Of The App</a></li>
                         
                         </ul>
                     </div>
@@ -307,15 +306,6 @@ This was getting a bit bigger than just a toy app I developed for learning. Ther
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
     </script>
-
-    <style>
-      pre.prettyprint {
-        font-size: 13px;
-        font-family: "Open Sans";
-        padding: 8px 12px;
-        border: 1px solid #bbb;
-      }
-    </style>
 
       </div>
     </div>

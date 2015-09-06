@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Week 0 - All About Money - The First X-Platform Release</title>
-  <meta name="description" content="Following on from the previous post where I discussed the current state of the app, I wanted to set out some goals I had for myself building the next iterati...">
+  <title>Week 0 - All About Money - The State Of The App</title>
+  <meta name="description" content="Before I talk about where I plan to go and how I’m thinking of (re-)building my All About Money app, it might to be good to get a sense of what the journey h...">
   <meta name="google-translate-customization" content="b9870a0c7376df54-aa35852016e6a5cc-ga0a0d80f6c171f17-e"></meta>
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-the-first-xplat-release/">
+  <link rel="canonical" href="http://krishna.nadiminti.me/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/">
   <link href="/images/favicon.png" rel="icon">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="alternate" type="application/rss+xml" title="World of Dualities" href="http://krishna.nadiminti.me/feed.xml">
@@ -93,18 +93,20 @@
 	<div class="col-md-10">
 
 	  	
-	    <h1>Week 0 - All About Money - The First X-Platform Release</h1>
+	    <h1>Week 0 - All About Money - The State Of The App</h1>
 	    <div id="google_translate_element" style="padding-right: 27px;float: left;"></div><script type="text/javascript">
 			function googleTranslateElementInit() {
   				new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 				}
 		</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         
-	    <p class="post-meta">Aug 25, 2015</p>
+	    <p class="post-meta">Aug 23, 2015</p>
 
 	   
 	  	<article class="blog-post-small blog-post-content">
-	    	<p>Following on from the <a href="/2015/08/23/week-0-all-about-money-the-state-of-the-app/">previous post</a> where I discussed the current state of the app, I wanted to set out some goals I had for myself building the next iteration of the app.</p>
+	    	<p>Before I talk about where I plan to go and how I’m thinking of (re-)building my All About Money app, it might to be good to get a sense of what the journey has been so far and what the app looks like in the Windows store - since that will help in identifying some (self-imposed) constraints.</p>
+
+<p>It is also a way to share my experience building and maintaining the app so far and the kind of numbers I’m seeing as an indie app dev.</p>
 
 <!-- more -->
 
@@ -115,40 +117,171 @@
   <h4 id="series-all-about-money---a-journey-to-build-a-mobile-app">Series: All About Money - A journey to build a mobile app</h4>
 
   <ul>
-    <li><a href="/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">An experiment with developing a mobile app in the open</a></li>
+    <li><a href="/mobile/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">An experiment with developing a mobile app in the open</a></li>
   </ul>
 
   <h5 id="week-0">Week 0</h5>
   <ul>
-    <li><a href="/2015/08/23/week-0-all-about-money-the-state-of-the-app/">The state of the app</a></li>
-    <li><a href="/2015/08/25/week-0-all-about-money-the-first-xplat-release/">The first x-platform release</a></li>
-    <li>Thinking functional and DDD - the personal finance tracking domain<!--(/2015/08/27/all-about-money-functional-ddd-personal-finance/)--></li>
-    <li>The project structure <!--(/2015/08/29/all-about-money-the-project-structure/)--></li>
+    <li><a href="/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/">The state of the app</a></li>
+    <li><a href="/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/">The goal: first x-platform release</a></li>
+    <li><a href="/development/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/">Thinking functional and DDD - in the personal finance tracking context</a></li>
+    <li><a href="/development/2015/08/29/week-0-all-about-money-the-project-structure/">The new Project structure</a></li>
+    <li>Design of the existing app</li>
   </ul>
 
   <h5 id="week-1">Week 1</h5>
   <ul>
     <li>UI and wireframes</li>
   </ul>
+
+  <p><sub> …   more to come  … <sub></sub></sub></p>
+
+  <h5 id="week-n">Week n</h5>
+  <ul>
+    <li>The final push to release</li>
+  </ul>
+
 </div>
 
-<p>For this next release, I’d like to take on some of the most requested features on my uservoice site, and take the opportunity to learn about technology (that I’ve been only playing with so far) enough to put it into production.</p>
+<p>The app has currently been in the Windows store for almost 3 years (at time of writing - 23 Aug 2015).</p>
 
-<h5 id="business-goals">Business goals:</h5>
-<ul>
-  <li>Create a version for phones to expand the market reach and satisfy a lot of users asking for it</li>
-  <li>Expand out and tap into Android and iOS user-base</li>
-  <li>Take advantage of the potential increase in the user-base with the Windows 10 wave</li>
-</ul>
+<p>As mentioned in a previous post - I had setup a uservoice site for the app - <a href="http://allaboutmoney.uservoice.com">http://allaboutmoney.uservoice.com</a> very early on in the release cycle.
+Since then I’ve been getting lots of feature requests - way more than I can keep up with.
+Currently there are about <strong>88</strong> outstanding feature requests of which I plan to do around 83.</p>
 
-<h5 id="learning-goals">Learning goals:</h5>
-<ul>
-  <li>Cross-platform development using Xamarin (I’ve done this before, but within the constraints set by a client)</li>
-  <li>Multi-form-factor development (Phones, tablets, hybrids, desktops, larger screens)</li>
-  <li>F# (again I worked on this before, but not in a production system)</li>
-</ul>
+<p>Since the first release, I pushed out a number of updates:</p>
 
-<p>Next time, I’ll post some thoughts around design and re-modelling the domain and the backend.</p>
+<table>
+  <tbody>
+    <tr>
+      <td>1.</td>
+      <td>Aug 30</td>
+      <td>2012</td>
+      <td>v.1.0</td>
+    </tr>
+    <tr>
+      <td>2.</td>
+      <td>Dec 03</td>
+      <td>2012</td>
+      <td>v.1.1</td>
+    </tr>
+    <tr>
+      <td>3.</td>
+      <td>Jan 23</td>
+      <td>2013</td>
+      <td>v.1.3</td>
+    </tr>
+    <tr>
+      <td>4.</td>
+      <td>Mar 09</td>
+      <td>2013</td>
+      <td>v.1.4.0</td>
+    </tr>
+    <tr>
+      <td>5.</td>
+      <td>Mar 11</td>
+      <td>2013</td>
+      <td>v.1.4.1</td>
+    </tr>
+    <tr>
+      <td>6.</td>
+      <td>Nov 11</td>
+      <td>2013</td>
+      <td>v.1.6.0</td>
+    </tr>
+    <tr>
+      <td>7.</td>
+      <td>Nov 26</td>
+      <td>2013</td>
+      <td>v.1.6.1</td>
+    </tr>
+    <tr>
+      <td>8.</td>
+      <td>Apr 21</td>
+      <td>2014</td>
+      <td>v.1.6.2</td>
+    </tr>
+    <tr>
+      <td>9.</td>
+      <td>May 04</td>
+      <td>2014</td>
+      <td>v.1.6.3</td>
+    </tr>
+    <tr>
+      <td>10.</td>
+      <td>May 20</td>
+      <td>2014</td>
+      <td>v.1.6.4</td>
+    </tr>
+    <tr>
+      <td>11.</td>
+      <td>Jul 10</td>
+      <td>2014</td>
+      <td>v.1.6.5</td>
+    </tr>
+    <tr>
+      <td>12.</td>
+      <td>Jul 25</td>
+      <td>2014</td>
+      <td>v.1.6.6</td>
+    </tr>
+    <tr>
+      <td>13.</td>
+      <td>Jun 27</td>
+      <td>2015</td>
+      <td>v.1.8.1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As of today (23 Aug 2015), the Windows store dashboard tells me the app has been downloaded over 100,000 times and has an average rating of almost <strong>4 stars</strong> over 500 ratings.</p>
+
+<p>I’ve not done much with the app this past 12 months - so the average number of downloads per week has gone down significantly (except for a couple of peaks):</p>
+
+<p><img src="/images/AAM/AllAboutMoney-Acquisitions-29Aug2015.png" alt="Downloads per week - All About Money Aug 2015 - 12 months" /></p>
+
+<p>The app has two in-app purchases:
+- Customisation (to let users add their own tags) [once-off purchase : 1.29 USD]
+- Advanced reporting (to get nice graphs and summaries of transactions) [once-off purchase : 4.49 USD]</p>
+
+<p>Since not many users use the Windows store, and not many people use a personal finance app in general - the revenue has been pretty low. In fact, it only ever made more than 500$ a month once: in Jan 2014. Here is a trend of how the number of in-app purchses looks like over the past 12 months…</p>
+
+<p><img src="/images/AAM/InAppPurchases-29Aug2015.png" alt="Revenue - All About Money - Aug 2015 - 12 months" /></p>
+
+<p>(Unfortunately the graphs shown in the Windows store dashboard is pretty ugly (and not as useful) these days - it used to be better a year or so ago.)</p>
+
+<p>The app itself has a small group of regular/daily users - from my custom telemetry, I found the following:</p>
+
+<p><img src="/images/AAM/AllAboutMoney-29Aug2015-DailyUsers.png" alt="Daily users - All About Money - Aug 2015 - 100 days" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>#</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Average # of users opening the app daily</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <td>Average # of crashes / errors daily</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>Average # of new downloads daily</td>
+      <td>76</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>So, given all this - one of my goals for the next version is to keep the existing users of my app happy, and to take them forward for the next version.</p>
+
+<p>I’ll make another post talking about the goals for the next release.</p>
+
+<p>If any of you indie app devs would like to see other stats / numbers or want to discuss these sort of aspects of app development, drop me a note.</p>
 
 	  	</article>
 	  	
@@ -167,8 +300,8 @@
     
       
       // var disqus_developer = 1;
-      var disqus_identifier = 'http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-the-first-xplat-release/';
-      var disqus_url = 'http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-the-first-xplat-release/';
+      var disqus_identifier = 'http://krishna.nadiminti.me/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/';
+      var disqus_url = 'http://krishna.nadiminti.me/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/';
       var disqus_script = 'embed.js';
     
 
@@ -184,10 +317,14 @@
   <ul class="pager">
     
     <li class="previous"><a class="basic-alignment left"
-      href="/2015/08/23/week-0-all-about-money-the-state-of-the-app/" title="Previous Post:
-      Week 0 - All About Money - The State Of The App">&laquo; Week 0 - All About Money - The State Of The App</a></li>
+      href="/mobile/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/" title="Previous Post:
+      An Experiment With Developing a Mobile App in the Open">&laquo; An Experiment With Developing a Mobile App in the Open</a></li>
     
     <!--li><a href="/blog/archives">Blog Archives</a></li-->
+    
+    <li class="next"><a class="basic-alignment right" href="/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/"
+      title="Next Post: Week 0 - All About Money - The First X-Platform Release">Week 0 - All About Money - The First X-Platform Release
+      &raquo;</a></li>
     
   </ul>
 
@@ -234,13 +371,13 @@
                       <h4>Recent Posts</h4>
                         <ul class="recent-posts">
                         
-                          <li><a href="/2015/08/25/week-0-all-about-money-the-first-xplat-release/">Week 0 - All About Money - The First X-Platform Release</a></li>
+                          <li><a href="/development/2015/08/29/week-0-all-about-money-the-project-structure/">Week 0 - All About Money - The Project Structure</a></li>
                         
-                          <li><a href="/2015/08/23/week-0-all-about-money-the-state-of-the-app/">Week 0 - All About Money - The State Of The App</a></li>
+                          <li><a href="/development/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/">Week 0 - All About Money - Thinking About Design - Functional And Domain Driven</a></li>
                         
-                          <li><a href="/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">An Experiment With Developing a Mobile App in the Open</a></li>
+                          <li><a href="/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/">Week 0 - All About Money - The First X-Platform Release</a></li>
                         
-                          <li><a href="/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/">Yet Another Getting Started Post - Blog with Octopress 3 on Windows 10</a></li>
+                          <li><a href="/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/">Week 0 - All About Money - The State Of The App</a></li>
                         
                         </ul>
                     </div>
@@ -289,15 +426,6 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
     </script>
-
-    <style>
-      pre.prettyprint {
-        font-size: 13px;
-        font-family: "Open Sans";
-        padding: 8px 12px;
-        border: 1px solid #bbb;
-      }
-    </style>
 
       </div>
     </div>

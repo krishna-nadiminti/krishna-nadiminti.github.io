@@ -6,16 +6,17 @@
 </description>
     <link>http://krishna.nadiminti.me/</link>
     <atom:link href="http://krishna.nadiminti.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 30 Aug 2015 21:31:19 +1000</pubDate>
-    <lastBuildDate>Sun, 30 Aug 2015 21:31:19 +1000</lastBuildDate>
+    <pubDate>Sun, 06 Sep 2015 19:44:33 +1000</pubDate>
+    <lastBuildDate>Sun, 06 Sep 2015 19:44:33 +1000</lastBuildDate>
     <generator>Jekyll v3.0.0.pre.beta8</generator>
     
       <item>
-        <title>Week 0 - All About Money - The First X-Platform Release</title>
-        <description>&lt;div class=&quot;aside&quot;&gt;
+        <title>Week 0 - All About Money - The Project Structure</title>
+        <description>&lt;p&gt;So far in this series, I’ve been talking about concepts related to re-building my mobile app - the why, what and how - and haven’t shown how I’d start implementing it. This post is about just that - the project/solution structure and how I’ve set it up in Visual Studio so I can build the rest of the app.&lt;/p&gt;
 
-  &lt;p&gt;This post is part of a series on my journey rebuilding my app and learning a lot of new stuff.
-Other posts in the series:&lt;/p&gt;
+&lt;div class=&quot;aside&quot;&gt;
+
+  &lt;p&gt;This post is part of a series on my journey rebuilding my app and learning a lot of new stuff. Other posts in the series:&lt;/p&gt;
 
   &lt;h4 id=&quot;series-all-about-money---a-journey-to-build-a-mobile-app&quot;&gt;Series: All About Money - A journey to build a mobile app&lt;/h4&gt;
 
@@ -26,20 +27,313 @@ Other posts in the series:&lt;/p&gt;
   &lt;h5 id=&quot;week-0&quot;&gt;Week 0&lt;/h5&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;The state of the app&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The first x-platform release&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;Thinking functional and DDD - the personal finance tracking domain&lt;!--(/2015/08/27/all-about-money-functional-ddd-personal-finance/)--&gt;&lt;/li&gt;
-    &lt;li&gt;The project structure &lt;!--(/2015/08/29/all-about-money-the-project-structure/)--&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The goal: first x-platform release&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - the personal finance tracking domain&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/29/all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[Design of the existing app]&lt;/li&gt;
   &lt;/ul&gt;
 
   &lt;h5 id=&quot;week-1&quot;&gt;Week 1&lt;/h5&gt;
   &lt;ul&gt;
     &lt;li&gt;UI and wireframes&lt;/li&gt;
   &lt;/ul&gt;
+
+  &lt;p&gt;[… More to come …]&lt;/p&gt;
+
+  &lt;h5 id=&quot;week-n&quot;&gt;Week n&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;The final push to release&lt;/li&gt;
+  &lt;/ul&gt;
+
 &lt;/div&gt;
 
-&lt;p&gt;Following on from the &lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;previous post&lt;/a&gt; where I discussed the current state of the app, I wanted to set out some goals I had for myself building the next iteration of the app.&lt;/p&gt;
+&lt;p&gt;Given I plan to target Windows, and Android for this next release, and I’m using Xamarin and MVVMCross, I’ve factored out the common code into PCLs (portable class libraries). As of now, my project structure looks like this:&lt;/p&gt;
 
-&lt;p&gt;For this next release, I’d like to take on some of the most requested features on my uservoice site, and take the opportunity to learn about technology (that I’ve been only playing with so far) enough to put it into production.&lt;/p&gt;
+&lt;p class=&quot;center&quot;&gt;&lt;img src=&quot;/images/AAM/ProjectStructure-1.png&quot; alt=&quot;Initial Project Structure&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I’ve created the &lt;code&gt;Money.Windows.UI&lt;/code&gt; and &lt;code&gt;Money.Droid.UI&lt;/code&gt; projects - that represent the UI for the respective platforms (and includes the views for tablets and phones) - in C#, because I had a bunch of problems using the latest version of F# (v4.0 at the time of writing) with the latest version of Visual Studio (2015) and Xamarin (v 3.11.837). The tooling with Xamarin just didn’t support the latest F# targets in VS 2015, and VS doesn’t natively include F# project templates for creating WinRT XAML projects. (I’d imagine I could hack together something to make it work - but I’d lose a lot of tooling support - and for the UI aspects, I decided to continue using C# and get the support from better tools).&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;Money.Domain&lt;/code&gt; project contains the domain model - for the command-side of CQRS and the intent is to have the command handlers and the domain events in this project.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;Money.Data&lt;/code&gt; project is where I plan to add the event handlers which store the data as a stream of events to a simple JSON file store (looking at &lt;a href=&quot;https://github.com/NEventStore/NEventStore&quot;&gt;NEventStore&lt;/a&gt; for this - but it lacks PCL support; I might have to add it in if possible without distracting me too much from this project);.&lt;/p&gt;
+
+&lt;p&gt;I have a data generation aspect - where I generate fake/demo data (possible some TransactionCreated events) - which will serve as the initial starting point for users trying out the app in the ‘demo’ mode where it already shows various screens filled in with some canned data. The code for this will probably live in the Money.Data project.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;Money.Queries&lt;/code&gt; project is for the read-side of CQRS. I’m not sure if it is worth separating the read and write sides - but it helps me avoid accidentally falling back to regular N-tier style design where reading/writing often tends to share the same classes to interact with the data store.&lt;/p&gt;
+
+&lt;p&gt;With this project structure, the current dependency graph looks as follows:&lt;/p&gt;
+
+&lt;p class=&quot;center&quot;&gt;&lt;img src=&quot;/images/AAM/ProjectDependencies-1.png&quot; alt=&quot;Initial Project Dependencies&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The UI projects will be the entry points into the app. The platform specific UI will call into services / view models from the common UI - which will then issue appropriate commands and queries that either directly interact with the data store or process the commands via the domain model to generate events which will be handled by classes in the data store to persist the event stream.&lt;/p&gt;
+
+&lt;p&gt;With this structure in place, I can now proceed to build out the rest of the application. I do want to reuse a lot of the UI elements and UI-related infrastructure code from the previous version of the solution (the Windows 8 app). Also, a lot of the read-side code will probably be just a straight port from C# to F# - given the C# code in that area is already portable (as in PCL) and written in a functional-style.&lt;/p&gt;
+
+&lt;p&gt;In the next post, I’ll describe the project structure of the existing solution to put future posts in context - whenever I refer to code-snippets / classes from the existing solution.&lt;/p&gt;
+
+&lt;p&gt;Soon, I also plan to push the code to github, so those following the series can look at the code as well.&lt;/p&gt;
+
+&lt;p&gt;Eventually, I intend to do a comparison of the new language + architecture with the existing solution.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 29 Aug 2015 20:10:06 +1000</pubDate>
+        <link>http://krishna.nadiminti.me/development/2015/08/29/week-0-all-about-money-the-project-structure/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/development/2015/08/29/week-0-all-about-money-the-project-structure/</guid>
+        
+        <category>architecture</category>
+        
+        <category>design</category>
+        
+        <category>development</category>
+        
+        <category>F#</category>
+        
+        <category>.NET</category>
+        
+        
+        <category>development</category>
+        
+      </item>
+    
+      <item>
+        <title>Week 0 - All About Money - Thinking About Design - Functional And Domain Driven</title>
+        <description>&lt;p&gt;One of the goals I had for this project was to apply a bunch of things that I’ve been learning about in combination. I’ve used one or more of these tools / technologies in different projects, but I’ve not had the chance to put them all together in a single project so far. These include things F#, Domain driven design (DDD), Command Query Responsibility Segregation (CQRS), Event sourcing, Xamarin, MVVMCross, Reactive Extensions framework etc.&lt;/p&gt;
+
+&lt;p&gt;In this post I’ll try to flesh out some of my thoughts around how I could put these technologies to good use in building the new cross-platform version of this mobile app.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;div class=&quot;aside&quot;&gt;
+
+  &lt;p&gt;This post is part of a series on my journey rebuilding my app and learning a lot of new stuff. Other posts in the series:&lt;/p&gt;
+
+  &lt;h4 id=&quot;series-all-about-money---a-journey-to-build-a-mobile-app&quot;&gt;Series: All About Money - A journey to build a mobile app&lt;/h4&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/&quot;&gt;An experiment with developing a mobile app in the open&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h5 id=&quot;week-0&quot;&gt;Week 0&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;The state of the app&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The goal: first x-platform release&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - the personal finance tracking domain&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/29/all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[Design of the existing app]&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h5 id=&quot;week-1&quot;&gt;Week 1&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;UI and wireframes&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;[… More to come …]&lt;/p&gt;
+
+  &lt;h5 id=&quot;week-n&quot;&gt;Week n&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;The final push to release&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;I’m not going to explain each of these tools / frameworks / patterns here because there has been a lot said about those already. Instead, I’d like to focus on how to apply some of these things to a specific application - and hopefully this will be useful to someone (including a future me), when stuck with a problem that these technologies are designed to help with.&lt;/p&gt;
+
+&lt;p&gt;Now, to start off - I already had a set of portable class libraries written in C# that make up the current version of All About Money. As I reviewed the design of the current app, I made a few interesting observations:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A lot of my service layer code is functional with heavy use of LINQ&lt;/li&gt;
+  &lt;li&gt;I was not separating concerns properly and was trying to re-use my persistence model (i.e. the C# classes I use to store the data to disk) - as my Domain and also DTOs (data transfer objects)&lt;/li&gt;
+  &lt;li&gt;I was even binding some of these objects directly to the UI (and implemented &lt;code&gt;INotifyPropertyChanged&lt;/code&gt; on some of them to support MVVM!)&lt;/li&gt;
+  &lt;li&gt;The cross-device synchronisation logic was more complicated than it needed to be - since I was using a very simple ‘file-per-class-type’ JSON store that I wrote a while ago&lt;/li&gt;
+  &lt;li&gt;Some of the PCL infrastructure code purely existing due to the way OOP works&lt;/li&gt;
+  &lt;li&gt;I wrote a lot of my own code to do view model discovery etc&lt;/li&gt;
+  &lt;li&gt;I had very little to protect me from accidentally writing incorrect code that would violate invariants in the domain&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There were more issues - but overall it prompted me to do a full re-think on how I’d design it - since now is a good opportunity, as I’m planning to release a cross-platform version.&lt;/p&gt;
+
+&lt;p&gt;Given these problems, tools like F#, DDD, MVVMCross and Xamarin almost chose themselves.&lt;/p&gt;
+
+&lt;h4 id=&quot;trying-to-apply-ddd-to-the-personal-finance-domain&quot;&gt;Trying to apply DDD to the personal finance domain&lt;/h4&gt;
+
+&lt;p&gt;From the perspective of the domain (accounting) - personal finance seems to be no different from a regular/business accounting in the sense that the core accounting principles apply in both cases. However, the user experience and interactions may need to be simplified to use a language and interface that talks about income, expenses, savings, budgets, categorisation and so on - as opposed to credits, debits, journals, ledgers and so on.&lt;/p&gt;
+
+&lt;p&gt;Also - I just didn’t want to build yet-another-full-blown-accounting system.&lt;/p&gt;
+
+&lt;p&gt;So, I started thinking about what the main ‘business’ events may be, and the language used to describe then came up with this first attempt:&lt;/p&gt;
+
+&lt;h4 id=&quot;possible-events-that-involve-money&quot;&gt;Possible events that involve money:&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;I spend money to buy something or pay for a service/fine.&lt;/li&gt;
+  &lt;li&gt;I earn money and deposit it into an account.&lt;/li&gt;
+  &lt;li&gt;I budget for a holiday and save money for it.&lt;/li&gt;
+  &lt;li&gt;I transfer money between my accounts.&lt;/li&gt;
+  &lt;li&gt;I import my bank/loan/credit card transaction statement.&lt;/li&gt;
+  &lt;li&gt;I lend money to help out someone.&lt;/li&gt;
+  &lt;li&gt;I get repaid by someone for the money I lent.&lt;/li&gt;
+  &lt;li&gt;I borrow money to pay for something.&lt;/li&gt;
+  &lt;li&gt;I pay off a loan.&lt;/li&gt;
+  &lt;li&gt;I buy a house / car etc.&lt;/li&gt;
+  &lt;li&gt;I sell a house / car.&lt;/li&gt;
+  &lt;li&gt;Is gifts a subset of spending/receiving?&lt;/li&gt;
+  &lt;li&gt;I gift money to someone.&lt;/li&gt;
+  &lt;li&gt;I get a gift of money from someone.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This was getting me nowhere. I was discussing this with a colleague and he quickly pointed out that I had no way of knowing every possible event that happens in anyone’s life that involved money.&lt;/p&gt;
+
+&lt;p&gt;Then, I started fresh and thought about why people may want to use the app in the first place - to make sure what I’m building actually meets their needs:&lt;/p&gt;
+
+&lt;h4 id=&quot;why-will-people-use-this-app&quot;&gt;Why will people use this app?&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To find out how much money they have in their accounts&lt;/li&gt;
+  &lt;li&gt;To find out how much they have saved&lt;/li&gt;
+  &lt;li&gt;To find out how much they can afford - for a holiday/activity/something to buy/invest&lt;/li&gt;
+  &lt;li&gt;To find out how much they have made in different ways&lt;/li&gt;
+  &lt;li&gt;To find out how much they have spent in different ways&lt;/li&gt;
+  &lt;li&gt;To find out how much they can save&lt;/li&gt;
+  &lt;li&gt;To find out where they can save&lt;/li&gt;
+  &lt;li&gt;To plan and budget for the future period&lt;/li&gt;
+  &lt;li&gt;To budget save for a goal&lt;/li&gt;
+  &lt;li&gt;To calculate their net worth&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Given this, I tried to boil down the events to just what an simple accounting system:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Money is &lt;code&gt;withdrawn&lt;/code&gt; from an account&lt;/li&gt;
+  &lt;li&gt;Money is &lt;code&gt;deposited&lt;/code&gt; into an account&lt;/li&gt;
+  &lt;li&gt;Money is transferred between accounts&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;Transactions&lt;/code&gt; are &lt;code&gt;imported&lt;/code&gt; from a &lt;code&gt;statement&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Each of the above transactions update the relevant account &lt;code&gt;balance&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;I later realised, that if I want to express these concepts from a user’s perspective, (say as actions / ‘commands’ the user may execute) these correspond to something like:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;I &lt;code&gt;spend&lt;/code&gt; money on something&lt;/li&gt;
+  &lt;li&gt;I &lt;code&gt;receive&lt;/code&gt; money for something&lt;/li&gt;
+  &lt;li&gt;I set a &lt;code&gt;budget&lt;/code&gt; for a spending category&lt;/li&gt;
+  &lt;li&gt;I &lt;code&gt;import&lt;/code&gt; a bank &lt;code&gt;transaction&lt;/code&gt; &lt;code&gt;statement&lt;/code&gt; into an &lt;code&gt;account&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I’ve highlighted all the key events / entities involved.&lt;/p&gt;
+
+&lt;p&gt;This helped me get started on a domain model for the command-side of the system. Expressed in F#, the first attempt looks like:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-fsharp&quot; data-lang=&quot;fsharp&quot;&gt;    &lt;span class=&quot;o&quot;&gt;[&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Measure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;currency&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Money&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;decimal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;currency&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//TODO might have to enforce the fact that only positive values are allowed&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ushort&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UInt16&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Tag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Label&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//TODO Identify any further constraints&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Category&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//TODO Identify any further constraints&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Account&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//TODO Identyify any further contraints. Is any string ok?&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//TODO Enforce Unique ID for accounts in the domain model&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;CurrencyCode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//TODO restrict to a ISO currency code?&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Transaction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Guid&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Account&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Account&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTimeOffset&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Amount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Money&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Description&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Tags&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Tag&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;list&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Category&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Category&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;option&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This represents the core domain - with a ‘money’ type that is modelled as a unit of measure - so that I don’t accidentally do incorrect math on it by mixing it up with regular decimals. A transaction is very simple: it has a date when it happened, an amount expressed as money, a description and an optional category. Since transactions may be grouped/categorised/classified in a number of ways and these groupings don’t always conform to a proper heirarchy/structure, I’ve introduced a concept of a ‘Tag’ - where a transaction is tagged with one or more tags. Any number of transactions can be tagged with the same tag. Later, the read-side of the application can query transactions and group them by tags, categories, accounts etc. For now the only aspects of an account that we are interested in - is a name and a number and the type of currency for the account. (The intention is to support using any currency, since I have users from various countries - but a user having multiple accounts with different currencies will be interesting - something I’ll deal with later when building the app.)&lt;/p&gt;
+
+&lt;p&gt;The only entities in the above are &lt;code&gt;Transaction&lt;/code&gt; and &lt;code&gt;Account&lt;/code&gt;. All other types are value objects. To make sure I get the free structural equality F# gives me, and also treat a transaction as an entity with a reference, I’ve added a ‘Id’ attribute to the transaction record type. The idea is to treat two CLR references with the same attribute values (including Id) as the same transaction - if I need to compare something read from storage with a transaction in-memory. I’m thinking I won’t have a need for that since I’ll probably be using other record types / classes when reading the data vs those used in writing it to persistent storage.&lt;/p&gt;
+
+&lt;p&gt;Now, I still have to flesh it out to ensure some additional constraints are designed into the type system so that I &lt;a href=&quot;http://fsharpforfunandprofit.com/posts/designing-with-types-making-illegal-states-unrepresentable/&quot;&gt;can’t represent invalid states&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Regarding the CQRS aspect of it - I’ve not yet thought about what the commands and queries will be. That’s a post in itself. I can already identify some events like:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TransactionCreated&lt;/li&gt;
+  &lt;li&gt;StatementImported&lt;/li&gt;
+  &lt;li&gt;TransactionChanged&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;etc.&lt;/p&gt;
+
+&lt;p&gt;Though it looks very CRUD-dy, I’m not sure if there are more specific events for a simple accounting system.
+I’d imagine some of these will evolve over time as I build more and more of that app - especially the queries on the read side.&lt;/p&gt;
+
+&lt;p&gt;For the storage of the data, I’m expecting that using event sourcing (with a simple JSON file store) will help me simplify state management by since I won’t ever have to change a file written to disk - if the file only contains immutable events like the ones listed above.&lt;/p&gt;
+
+&lt;p&gt;That’s how far I’ve got at the moment. I’ll share more of my design thinking and flesh it out as we go, in future posts.&lt;/p&gt;
+
+&lt;p&gt;I’d like to hear your thoughts / suggestions on what your design may look like…&lt;/p&gt;
+</description>
+        <pubDate>Thu, 27 Aug 2015 21:43:00 +1000</pubDate>
+        <link>http://krishna.nadiminti.me/development/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/development/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/</guid>
+        
+        <category>DDD</category>
+        
+        <category>Functional programming</category>
+        
+        <category>CQRS</category>
+        
+        
+        <category>development</category>
+        
+      </item>
+    
+      <item>
+        <title>Week 0 - All About Money - The First X-Platform Release</title>
+        <description>&lt;p&gt;For this next release, I’d like to take on some of the most requested features on my uservoice site, and take the opportunity to learn about technology (that I’ve been only playing with so far) enough to put it into production.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;div class=&quot;aside&quot;&gt;
+
+  &lt;p&gt;This post is part of a series on my journey rebuilding my app and learning a lot of new stuff. Other posts in the series:&lt;/p&gt;
+
+  &lt;h4 id=&quot;series-all-about-money---a-journey-to-build-a-mobile-app&quot;&gt;Series: All About Money - A journey to build a mobile app&lt;/h4&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/&quot;&gt;An experiment with developing a mobile app in the open&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h5 id=&quot;week-0&quot;&gt;Week 0&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;The state of the app&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The goal: first x-platform release&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - the personal finance tracking domain&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/29/all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[Design of the existing app]&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h5 id=&quot;week-1&quot;&gt;Week 1&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;UI and wireframes&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;[… More to come …]&lt;/p&gt;
+
+  &lt;h5 id=&quot;week-n&quot;&gt;Week n&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;The final push to release&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Following on from the &lt;a href=&quot;/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;previous post&lt;/a&gt; where I discussed the current state of the app, I wanted to set out some goals I had for myself building the next iteration of the app.&lt;/p&gt;
 
 &lt;h5 id=&quot;business-goals&quot;&gt;Business goals:&lt;/h5&gt;
 &lt;ul&gt;
@@ -54,17 +348,27 @@ Other posts in the series:&lt;/p&gt;
   &lt;li&gt;Multi-form-factor development (Phones, tablets, hybrids, desktops, larger screens)&lt;/li&gt;
   &lt;li&gt;F# (again I worked on this before, but not in a production system)&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Next time, I’ll post some thoughts around design and re-modelling the domain and the backend.&lt;/p&gt;
 </description>
         <pubDate>Tue, 25 Aug 2015 20:20:05 +1000</pubDate>
-        <link>http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-the-first-xplat-release/</link>
-        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/25/week-0-all-about-money-the-first-xplat-release/</guid>
+        <link>http://krishna.nadiminti.me/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/development/2015/08/25/week-0-all-about-money-the-first-xplat-release/</guid>
         
+        <category>mobile</category>
+        
+        <category>app-development</category>
+        
+        <category>cross-platform</category>
+        
+        
+        <category>development</category>
         
       </item>
     
       <item>
         <title>Week 0 - All About Money - The State Of The App</title>
-        <description>&lt;p&gt;Before I talk about where I plan to go and how I’m thinking of building the app, it might to be good to get a sense of what the journey has been so far and what the app looks like in the Windows store - since that will help in identifying some (self-imposed) constraints.&lt;/p&gt;
+        <description>&lt;p&gt;Before I talk about where I plan to go and how I’m thinking of (re-)building my All About Money app, it might to be good to get a sense of what the journey has been so far and what the app looks like in the Windows store - since that will help in identifying some (self-imposed) constraints.&lt;/p&gt;
 
 &lt;p&gt;It is also a way to share my experience building and maintaining the app so far and the kind of numbers I’m seeing as an indie app dev.&lt;/p&gt;
 
@@ -72,8 +376,7 @@ Other posts in the series:&lt;/p&gt;
 
 &lt;div class=&quot;aside&quot;&gt;
 
-  &lt;p&gt;This post is part of a series on my journey rebuilding my app and learning a lot of new stuff.
-Other posts in the series:&lt;/p&gt;
+  &lt;p&gt;This post is part of a series on my journey rebuilding my app and learning a lot of new stuff. Other posts in the series:&lt;/p&gt;
 
   &lt;h4 id=&quot;series-all-about-money---a-journey-to-build-a-mobile-app&quot;&gt;Series: All About Money - A journey to build a mobile app&lt;/h4&gt;
 
@@ -84,15 +387,24 @@ Other posts in the series:&lt;/p&gt;
   &lt;h5 id=&quot;week-0&quot;&gt;Week 0&lt;/h5&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;The state of the app&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The first x-platform release&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;Thinking functional and DDD - the personal finance tracking domain&lt;!--(/2015/08/27/all-about-money-functional-ddd-personal-finance/)--&gt;&lt;/li&gt;
-    &lt;li&gt;The project structure &lt;!--(/2015/08/29/all-about-money-the-project-structure/)--&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The goal: first x-platform release&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - the personal finance tracking domain&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/29/all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[Design of the existing app]&lt;/li&gt;
   &lt;/ul&gt;
 
   &lt;h5 id=&quot;week-1&quot;&gt;Week 1&lt;/h5&gt;
   &lt;ul&gt;
     &lt;li&gt;UI and wireframes&lt;/li&gt;
   &lt;/ul&gt;
+
+  &lt;p&gt;[… More to come …]&lt;/p&gt;
+
+  &lt;h5 id=&quot;week-n&quot;&gt;Week n&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;The final push to release&lt;/li&gt;
+  &lt;/ul&gt;
+
 &lt;/div&gt;
 
 &lt;p&gt;The app has currently been in the Windows store for almost 3 years (at time of writing - 23 Aug 2015).&lt;/p&gt;
@@ -190,7 +502,7 @@ Currently there are about &lt;strong&gt;88&lt;/strong&gt; outstanding feature re
 
 &lt;p&gt;I’ve not done much with the app this past 12 months - so the average number of downloads per week has gone down significantly (except for a couple of peaks):&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/AllAboutMoney-Acquisitions-29Aug2015.png&quot; alt=&quot;Downloads per week - All About Money Aug 2015 - 12 months&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/AAM/AllAboutMoney-Acquisitions-29Aug2015.png&quot; alt=&quot;Downloads per week - All About Money Aug 2015 - 12 months&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The app has two in-app purchases:
 - Customisation (to let users add their own tags) [once-off purchase : 1.29 USD]
@@ -198,13 +510,13 @@ Currently there are about &lt;strong&gt;88&lt;/strong&gt; outstanding feature re
 
 &lt;p&gt;Since not many users use the Windows store, and not many people use a personal finance app in general - the revenue has been pretty low. In fact, it only ever made more than 500$ a month once: in Jan 2014. Here is a trend of how the number of in-app purchses looks like over the past 12 months…&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/InAppPurchases-29Aug2015.png&quot; alt=&quot;Revenue - All About Money - Aug 2015 - 12 months&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/AAM/InAppPurchases-29Aug2015.png&quot; alt=&quot;Revenue - All About Money - Aug 2015 - 12 months&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;(Unfortunately the graphs shown in the Windows store dashboard is pretty ugly (and not as useful) these days - it used to be better a year or so ago.)&lt;/p&gt;
 
 &lt;p&gt;The app itself has a small group of regular/daily users - from my custom telemetry, I found the following:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/AllAboutMoney-29Aug2015-DailyUsers.png&quot; alt=&quot;Daily users - All About Money - Aug 2015 - 100 days&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/AAM/AllAboutMoney-29Aug2015-DailyUsers.png&quot; alt=&quot;Daily users - All About Money - Aug 2015 - 100 days&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -236,9 +548,17 @@ Currently there are about &lt;strong&gt;88&lt;/strong&gt; outstanding feature re
 &lt;p&gt;If any of you indie app devs would like to see other stats / numbers or want to discuss these sort of aspects of app development, drop me a note.&lt;/p&gt;
 </description>
         <pubDate>Sun, 23 Aug 2015 20:30:05 +1000</pubDate>
-        <link>http://krishna.nadiminti.me/2015/08/23/week-0-all-about-money-the-state-of-the-app/</link>
-        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/23/week-0-all-about-money-the-state-of-the-app/</guid>
+        <link>http://krishna.nadiminti.me/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/development/2015/08/23/week-0-all-about-money-the-state-of-the-app/</guid>
         
+        <category>mobile</category>
+        
+        <category>app-development</category>
+        
+        <category>business</category>
+        
+        
+        <category>development</category>
         
       </item>
     
@@ -252,8 +572,7 @@ Currently there are about &lt;strong&gt;88&lt;/strong&gt; outstanding feature re
 
 &lt;div class=&quot;aside&quot;&gt;
 
-  &lt;p&gt;This post is part of a series on my journey rebuilding my app and learning a lot of new stuff.
-Other posts in the series:&lt;/p&gt;
+  &lt;p&gt;This post is part of a series on my journey rebuilding my app and learning a lot of new stuff. Other posts in the series:&lt;/p&gt;
 
   &lt;h4 id=&quot;series-all-about-money---a-journey-to-build-a-mobile-app&quot;&gt;Series: All About Money - A journey to build a mobile app&lt;/h4&gt;
 
@@ -264,18 +583,27 @@ Other posts in the series:&lt;/p&gt;
   &lt;h5 id=&quot;week-0&quot;&gt;Week 0&lt;/h5&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;The state of the app&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The first x-platform release&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;Thinking functional and DDD - the personal finance tracking domain&lt;!--(/2015/08/27/all-about-money-functional-ddd-personal-finance/)--&gt;&lt;/li&gt;
-    &lt;li&gt;The project structure &lt;!--(/2015/08/29/all-about-money-the-project-structure/)--&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The goal: first x-platform release&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - the personal finance tracking domain&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/29/all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;[Design of the existing app]&lt;/li&gt;
   &lt;/ul&gt;
 
   &lt;h5 id=&quot;week-1&quot;&gt;Week 1&lt;/h5&gt;
   &lt;ul&gt;
     &lt;li&gt;UI and wireframes&lt;/li&gt;
   &lt;/ul&gt;
+
+  &lt;p&gt;[… More to come …]&lt;/p&gt;
+
+  &lt;h5 id=&quot;week-n&quot;&gt;Week n&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;The final push to release&lt;/li&gt;
+  &lt;/ul&gt;
+
 &lt;/div&gt;
 
-&lt;p class=&quot;center&quot;&gt;&lt;img src=&quot;/images/AAM1-blue.jpg&quot; alt=&quot;All About Money&quot; /&gt;&lt;/p&gt;
+&lt;p class=&quot;center&quot;&gt;&lt;img src=&quot;/images/AAM/AAM1-blue.jpg&quot; alt=&quot;All About Money&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;That went well (the learning, building and actually shipping it) - though I ended up spending a lot more time than I planned - on researching colour theory, UX design principles, design guidelines and so on. I got the first version out within 3-4 months in late 2012 and since it was one of the first (decent-looking - if I say so myself) personal finance apps in the store at that time - it got noticed and rose to the top 10 in the finance category and stayed there for a while. To be honest, there wasn’t much competition in the Win 8 store - atleast in the finance apps category for almost a year and a half. Even after that - I found that though my little app lacked many important features, people kept using / downloading it (I’d imagine that mostly because it is free!).&lt;/p&gt;
 
@@ -306,9 +634,17 @@ This was getting a bit bigger than just a toy app I developed for learning. Ther
 &lt;/p&gt;
 </description>
         <pubDate>Tue, 18 Aug 2015 21:33:02 +1000</pubDate>
-        <link>http://krishna.nadiminti.me/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/</link>
-        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/</guid>
+        <link>http://krishna.nadiminti.me/mobile/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/mobile/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/</guid>
         
+        <category>mobile</category>
+        
+        <category>apps</category>
+        
+        <category>Xamarin</category>
+        
+        
+        <category>mobile</category>
         
       </item>
     
@@ -511,9 +847,19 @@ So after considering various options, I settled on using Octopress.&lt;/p&gt;
 &lt;p&gt;Till next time…take it easy!&lt;/p&gt;
 </description>
         <pubDate>Mon, 17 Aug 2015 22:26:12 +1000</pubDate>
-        <link>http://krishna.nadiminti.me/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/</link>
-        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/</guid>
+        <link>http://krishna.nadiminti.me/blogging/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/blogging/2015/08/17/yet-another-getting-started-post-octopress-3-on-windows-10/</guid>
         
+        <category>github</category>
+        
+        <category>github-pages</category>
+        
+        <category>jekyll</category>
+        
+        <category>ruby</category>
+        
+        
+        <category>blogging</category>
         
       </item>
     
