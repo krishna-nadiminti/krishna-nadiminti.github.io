@@ -34,10 +34,15 @@ GEM
       octopress-hooks (~> 2.0)
       redcarpet (~> 3.0)
       titlecase
+    octopress-code-highlighter (4.2.6)
+      colorator (~> 0.1)
+      octopress-hooks
     octopress-deploy (1.3.0)
       colorator
     octopress-escape-code (2.0.6)
       octopress-hooks (~> 2.0)
+    octopress-gist (1.3.5)
+      octopress-code-highlighter (~> 4.2)
     octopress-hooks (2.6.1)
       jekyll (>= 2.0)
     posix-spawn (0.3.11)
@@ -63,6 +68,7 @@ PLATFORMS
 DEPENDENCIES
   kramdown
   octopress (~> 3.0.0)
+  octopress-gist
   pygments.rb
   sass
   wdm (>= 0.1.0)

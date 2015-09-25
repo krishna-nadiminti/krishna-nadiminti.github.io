@@ -6071,3 +6071,15 @@ table {
       color: #ccc; }
     .navbar-inverse .btn-link[disabled]:hover {
       color: #444444; }
+
+.gist {
+  opacity: 0.7; }
+  .gist .gist-file {
+    border: none;
+    border-radius: 0px !important; }
+  .gist .gist-data {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 300px; }
+  .gist .gist-data, .gist .gist-meta, .gist .highlight {
+    background-color: #888; }

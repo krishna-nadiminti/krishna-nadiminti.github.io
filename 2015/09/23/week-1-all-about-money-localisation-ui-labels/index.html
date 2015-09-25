@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Week 1 - All About Money - UI Text Localisation</title>
+  <meta name="description" content="It’s been a busy month and I’ve not had much of a chance to work on my app for a few weeks. So, the official ‘Week 1’ series of posts starts now with a bit o...">
+  <meta name="google-translate-customization" content="b9870a0c7376df54-aa35852016e6a5cc-ga0a0d80f6c171f17-e"></meta>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://krishna.nadiminti.me/2015/09/23/week-1-all-about-money-localisation-ui-labels/">
+  <link href="/images/favicon.png" rel="icon">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="World of Dualities" href="http://krishna.nadiminti.me/feed.xml">
+  <link rel="alternate" type="application/atom+xml" title="World of Dualities" href="http://krishna.nadiminti.me/atom.xml" />
+</head>
+
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+
+            <div class="col-md-12 navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-collapse collapse navbar-inverse-collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="/">Home</a></li>
+          
+            
+              <li><a href="/about/">About</a></li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+
+<!--           <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+            
+              
+                <li><a href="/about/" style="text-transform : uppercase;">About</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            </ul>
+          </li>
+ -->        </ul>
+
+        <ul class="nav navbar-nav navbar-right left-syms">
+          <li><a href="//linkedin.com/in/krishnanadiminti" target="_blank"><i class="fa fa-linkedin"></i> <span>Linkedin</span></a></li>
+          <li><a href="//github.com/krishna-nadiminti" target="_blank"><i class="fa fa-github"></i> <span>Github</span></a></li>
+          <li><a href="//twitter.com/knadiminti" target="_blank"><i class="fa fa-twitter"></i> <span>Twitter</span></a></li>
+          <li><a href="http://krishna.nadiminti.me/atom.xml" target="_blank"><i class="fa fa-rss"></i> <span>RSS Feed</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+
+        <div class="col-md-12 blog-theme-class">
+          <!-- Top Blog Header -->
+          <div class="row jumb-bot">
+            <div class="col-md-1">
+              <div class="clip-circle-avatar avatar-jumbo-align"></div>
+            </div>
+            <div class="col-md-10">
+              <div class="jumbotron jumb-bot-jumbu">
+                <h1>World of Dualities</h1>
+                <p>Random ramblings of a software geek.
+</p>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+
+	  	
+	    <h1>Week 1 - All About Money - UI Text Localisation</h1>
+	    <div id="google_translate_element" style="padding-right: 27px;float: left;"></div><script type="text/javascript">
+			function googleTranslateElementInit() {
+  				new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+				}
+		</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
+	    <p class="post-meta">Sep 23, 2015</p>
+
+	   
+	  	<article class="blog-post-small blog-post-content">
+	    	<p>It’s been a busy month and I’ve not had much of a chance to work on my app for a few weeks. So, the official ‘Week 1’ series of posts starts now with a bit of work I did on porting a <a href="https://msdn.microsoft.com/en-us/library/bb126445.aspx">T4 template</a> from C# to F#.</p>
+
+<!-- more -->
+
+<div class="aside">
+
+  <p>This post is part of a series on my journey rebuilding my app and learning a lot of new stuff. Other posts in the series:</p>
+
+  <h4 id="series-all-about-money---a-journey-to-build-a-mobile-app">Series: All About Money - A journey to build a mobile app</h4>
+
+  <ul>
+    <li><a href="/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/">An experiment with developing a mobile app in the open</a></li>
+  </ul>
+
+  <h5 id="week-0">Week 0</h5>
+  <ul>
+    <li><a href="/2015/08/23/week-0-all-about-money-the-state-of-the-app/">The state of the app</a></li>
+    <li><a href="/2015/08/25/week-0-all-about-money-the-first-xplat-release/">The goal: first x-platform release</a></li>
+    <li><a href="/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/">Thinking functional and DDD - in the personal finance tracking context</a></li>
+    <li><a href="/2015/08/29/week-0-all-about-money-the-project-structure/">The new Project structure</a></li>
+    <li>Design of the existing app</li>
+  </ul>
+
+  <h5 id="week-1">Week 1</h5>
+  <ul>
+    <li>UI and wireframes</li>
+  </ul>
+
+  <p><sub> …   more to come  … <sub></sub></sub></p>
+
+  <h5 id="week-n">Week n</h5>
+  <ul>
+    <li>The final push to release</li>
+  </ul>
+
+</div>
+
+<h5 id="background">Background</h5>
+
+<p>T4 is awesome! In the C# version of my app - I use it to generate some C# to access string labels from resource files at runtime. Now - this is a problem that has been solved before many times and well.</p>
+
+<p>My requirement for text localisation is simple. AS discussed in my project structure post, I’ve got a portable class library (PCL) - <code>Money.Common.UI</code> - that has all the view models which I plan to share across the Windows / Android phone / tablet versions. Since the UI is going to be very similar on different platforms - my labels / text etc. on the UI is likely to be similar too. Also, I have longer term plans to translate the app for other languages (i.e non-English). There are some parts of the UI where the labels are only used/declared in the UI project(s) - like labels for buttons etc. But some others, like page headings, error/information/warning messages and similar ones need to be driven from code - from the view models.</p>
+
+<p>Given this, I need a solution that:</p>
+
+<ul>
+  <li>Let’s me create a simple (ideally text-based) file which holds all UI the strings</li>
+  <li>The resource file should be easy to edit and share with people who are language translators</li>
+  <li>The resource file should have a structure, so I can use it to generate strongly-typed code that references the labels</li>
+  <li>The file should be transformable to other text / other formats used by each UI platform to represent string resources in the native tools for each platform (eg. <code>.resw</code> files for Windows, <code>.xml</code> files for Android etc), so that I can make the best use of the localisation support built into each platform, and not have to hack it into the UI myself with some custom libraries.</li>
+</ul>
+
+<p>These requirements are not new for the re-write of this app. I’ve had these for a while, and I already came up with a simple working solution using <code>.resx</code> files + T4 to generate some C# code (that doesn’t use <a href="https://msdn.microsoft.com/en-us/library/system.resources.resourcemanager.aspx">System.Resources.ResourceManager</a> APIs - because these APIs don’t seem to work well for WinRT apps).</p>
+
+<p>The new/tricky part for me is - to get it to generate F# code, given T4 tools are not natively supported in Visual Studio when using F# projects.</p>
+
+<h6 id="the-existing-c-solution">The existing C# solution</h6>
+
+<p>With the old C# solution, the tooling is great. T4 is natively supported and generates files when using ‘Run Custom Tool’ (or automatically if needed during the build process) - the files are added to the project automatically and I can even use something like the free version of the Tangible T4 editor to get basic intellisense when working with the <code>.tt</code> files.
+I could generate a static class in C# that would delegate the reading of the resource files to a platform specific API via a common interface - so the PCL doesn’t need to know how to read platform-specific version of the resource files. So, I abstracted that into the following interface:</p>
+
+<!-- gist of IResourceLoader -->
+<script src="https://gist.github.com/844fe77c9722374a2fb5.js?file=IResourceLoader.cs" type="text/javascript"></script>
+
+<p>In the PCL project, there is a <code>Strings.tt</code> file which looks like the below:</p>
+
+<!-- gist of Strings.tt -->
+<script src="https://gist.github.com/844fe77c9722374a2fb5.js?file=Strings.tt" type="text/javascript"></script>
+
+<p>The <code>.tt</code> file reads a <code>.resx</code> that is named after it: <code>Strings.resx</code> …</p>
+
+<!-- partial gist of the Strings.resx -->
+<script src="https://gist.github.com/844fe77c9722374a2fb5.js?file=Strings.resx" type="text/javascript"></script>
+
+<p>The build action for the <code>Strings.tt</code> and <code>Strings.resx</code> is set to ‘None’ - since I didn’t really want the default code with the <code>ResourceManager</code> APIs generated for a <code>.resx</code> file - my <code>.tt</code> file handles it with my customisations. The code generated from the <code>.tt</code> file looks like:</p>
+
+<!-- partial gist of the Strings.generated.cs -->
+<script src="https://gist.github.com/844fe77c9722374a2fb5.js?file=Strings.generated.cs" type="text/javascript"></script>
+
+<p>Now, the usage of the labels in the view model code becomes simple, easy, and strongly-typed:</p>
+
+<!-- partial gist of the usage of Strings.generated.cs -->
+<script src="https://gist.github.com/844fe77c9722374a2fb5.js?file=Using-Strings.generated.cs" type="text/javascript"></script>
+
+<p>In the Windows UI project, another <code>.tt</code> file would take the <code>.resx</code> file and convert it to a <code>.resw</code> file which is what <a href="https://msdn.microsoft.com/en-us/library/windows/apps/hh969150.aspx">WinRT localisation APIs natively use</a>.</p>
+
+<!-- partial gist of the resx-to-resw file -->
+<script src="https://gist.github.com/844fe77c9722374a2fb5.js?file=ResX-ResW.tt" type="text/javascript"></script>
+
+<p>Finally, the Windows UI project also has a <code>IResourceLoader</code> implementation as follows:</p>
+
+<!-- gist of the Windows ResourceLoader -->
+<script src="https://gist.github.com/844fe77c9722374a2fb5.js?file=WinRTResourceLoader.cs" type="text/javascript"></script>
+
+<p>Now, it seems like having all these parts makes it unnecessarily complex. Especially, given MVVMCross has some <a href="http://slodge.blogspot.com.au/2013/05/n21-internationalisation-i18n-n1-days.html">localisation plugins</a>. But, the <code>.tt</code> files were already written: since my original C# project was written in 2012, started with just a Windows store app and I didn’t start with MVVMCross. In my case, it felt like just reusing most of the existing work I’d already done seemed sensible. If starting a new project, I might consider one of the JSON/other localisation plugins with MVVMCross - but I’m not sure how well they work with the native localisation APIs in each platform.</p>
+
+<p>(The full gist for all the files above is at: https://gist.github.com/krishna-nadiminti/844fe77c9722374a2fb5)</p>
+
+<h6 id="the-f-version">The F# version</h6>
+
+<p>Since my view models project is now a F# PCL - I need the strongly-typed code to also be in F#.</p>
+
+<p>First off, my plan was to just re-use the existing T4 template (written in C#) - to generate F#. But as soon as I found that T4 isn’t well supported in FSharp projects, and that you’d have to resort to adding pre-build steps on the project file to run the templating engine on the command-line, I started looking for nicer / cleaner options…</p>
+
+<p>Next, I considered using the <a href="https://fsprojects.github.io/FSharp.Configuration/ResXProvider.html">ResX type provider</a> - but it was tied to the <code>ResourceManager</code> API too. That wouldn’t work in this case. I need my UI platform to provide the implementation of a <code>IResourceLoader</code>, while the PCL can just read the resources and use them without worrying about how the implementation looks like on each platform.</p>
+
+<p>After looking around a bit more, <a href="https://twitter.com/pezi_pink">@pezi_pink</a>’s <a href="http://pinksquirrellabs.com/post/2015/03/01/Introducing-The-Mixin-Type-Provider.aspx">Mixin type provider</a> seemed promising - but too complex for my case. After all - all I needed was to generate a bunch of constants in a language, reading strings/keys from a text file. After a quick twitter conversation, he suggested I look at <a href="https://github.com/kerams/Templatus">Templatus</a> - which uses a T4-like templating language and a command-line tool to generate text, with the advantage of being able to write the template in F# + text. I tried playing with it for a little bit, but couldn’t get some of the basic command-line parameter passing options to work. Again, if I didn’t already have a working T4 template, I’d probably had dug deeper to get it working.</p>
+
+<p>In the end, I decided to just stick with T4, and add a pre-build event to run T4 on the command-line for the F# project:</p>
+
+<!-- command-line for the F# version -->
+
+<p>“C:\Program Files (x86)\Common Files\Microsoft Shared\TextTemplating\14.0\TextTransform.exe” $(ProjectDir)Strings.tt</p>
+
+<p>I had to manually add the <code>Strings.generated.fs</code> project the first time and order it correctly so that the view models can access it - but after that it was easy.</p>
+
+<p>The advantage with this approach is that I didn’t need to modify my <em>958</em> line <code>Strings.resx</code> file from the C# version. And I only had to spend less than 10 minutes porting the C# version of the <code>Strings.tt</code> to the F# version. (The F# version is still <em>written</em> in C#, but generates F#!).</p>
+
+<p>In fact, I spent way more time researching the options and writing up this blog post, than actually porting the <code>Strings.tt</code> file and getting it to work with the F# PCL.</p>
+
+<p>The interesting part is how simple the F# version looks and reads:</p>
+
+<!-- gist of generated code -->
+<script src="https://gist.github.com/7f7cedddfda009329305.js" type="text/javascript"></script>
+
+<p>Everyone knows F# is terse, but the readability is significantly improved here. And one quick glance tells you - it is just a bunch of constants.</p>
+
+<p><em>122</em> lines in C# vs <em>26</em> lines in F#. (excluding comments)</p>
+
+<p>So - this has been my journey so far with localisation.</p>
+
+<p>Till next time…</p>
+
+	  	</article>
+	  	
+	  	
+	  	
+<!-- Output author details if some exist. -->
+
+
+<section>
+  <h1>Comments</h1>
+  <div id="disqus_thread"></div>
+</section>
+
+<script type="text/javascript">
+    var disqus_shortname = 'krishna-nadiminti';
+    
+      
+      // var disqus_developer = 1;
+      var disqus_identifier = 'http://krishna.nadiminti.me/2015/09/23/week-1-all-about-money-localisation-ui-labels/';
+      var disqus_url = 'http://krishna.nadiminti.me/2015/09/23/week-1-all-about-money-localisation-ui-labels/';
+      var disqus_script = 'embed.js';
+    
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+  <ul class="pager">
+    
+    <li class="previous"><a class="basic-alignment left"
+      href="/2015/08/29/week-0-all-about-money-the-project-structure/" title="Previous Post:
+      Week 0 - All About Money - The Project Structure">&laquo; Week 0 - All About Money - The Project Structure</a></li>
+    
+    <!--li><a href="/blog/archives">Blog Archives</a></li-->
+    
+  </ul>
+
+	</div>
+	<div class="col-md-1"></div>
+</div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              
+
+
+<div class="twitter_share">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="knadiminti" data-hashtags="sailsjs">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
+
+
+
+<div class="linkedin_share">
+	<script src="//platform.linkedin.com/in.js" type="text/javascript">
+	  lang: en_US
+	</script>
+	<script type="IN/Share" data-counter="right"></script>
+</div>
+
+
+
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <!-- Footer -->
+            <div class="row footer">
+              <div class="col-md-1"></div>
+              <div class="col-md-10">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <h4>Recent Posts</h4>
+                        <ul class="recent-posts">
+                        
+                          <li><a href="/2015/09/23/week-1-all-about-money-localisation-ui-labels/">Week 1 - All About Money - UI Text Localisation</a></li>
+                        
+                          <li><a href="/2015/08/29/week-0-all-about-money-the-project-structure/">Week 0 - All About Money - The Project Structure</a></li>
+                        
+                          <li><a href="/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/">Week 0 - All About Money - Thinking About Design - Functional And Domain Driven</a></li>
+                        
+                          <li><a href="/2015/08/25/week-0-all-about-money-the-first-xplat-release/">Week 0 - All About Money - The First X-Platform Release</a></li>
+                        
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-md-offset-1">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1">
+                    </div>
+                  </div>
+              </div>
+              <div class="col-md-1"></div>
+            </div>
+          <!-- End Footer -->
+
+        </div>
+
+        <div class="col-md-12">
+        			<div class="row end_footer">
+              <div class="col-md-1"></div>
+              <div class="col-md-6">
+                <p>Copyright &copy; World of Dualities 2015</p>
+              </div>
+              <div class="col-md-4"></div>
+              <div class="col-md-1"></div>
+            </div>
+
+        </div>
+
+            <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/prettify.js"></script>
+    <script>
+      [].forEach.call(document.getElementsByTagName("pre"), function(el) {
+        el.classList.add("prettyprint");
+      });
+
+      prettyPrint();
+    </script>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-66680723-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+
+      </div>
+    </div>
+  </body>
+
+</html>

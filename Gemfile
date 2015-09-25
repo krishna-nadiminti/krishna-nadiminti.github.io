@@ -9,6 +9,7 @@ gem 'kramdown'
 gem 'sass'
 
 group :jekyll_plugins do
+  gem 'octopress-gist'
    #gem "my-jekyll-plugin"
    #gem 'link-checker' #needs nokogiri which failed to install
  end

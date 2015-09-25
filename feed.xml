@@ -6,9 +6,159 @@
 </description>
     <link>http://krishna.nadiminti.me/</link>
     <atom:link href="http://krishna.nadiminti.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Sep 2015 20:35:51 +1000</pubDate>
-    <lastBuildDate>Sun, 06 Sep 2015 20:35:51 +1000</lastBuildDate>
+    <pubDate>Sat, 26 Sep 2015 00:06:41 +1000</pubDate>
+    <lastBuildDate>Sat, 26 Sep 2015 00:06:41 +1000</lastBuildDate>
     <generator>Jekyll v3.0.0.pre.beta8</generator>
+    
+      <item>
+        <title>Week 1 - All About Money - UI Text Localisation</title>
+        <description>&lt;p&gt;It’s been a busy month and I’ve not had much of a chance to work on my app for a few weeks. So, the official ‘Week 1’ series of posts starts now with a bit of work I did on porting a &lt;a href=&quot;https://msdn.microsoft.com/en-us/library/bb126445.aspx&quot;&gt;T4 template&lt;/a&gt; from C# to F#.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;div class=&quot;aside&quot;&gt;
+
+  &lt;p&gt;This post is part of a series on my journey rebuilding my app and learning a lot of new stuff. Other posts in the series:&lt;/p&gt;
+
+  &lt;h4 id=&quot;series-all-about-money---a-journey-to-build-a-mobile-app&quot;&gt;Series: All About Money - A journey to build a mobile app&lt;/h4&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/18/an-experiment-with-developing-a-mobile-app-in-the-open/&quot;&gt;An experiment with developing a mobile app in the open&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h5 id=&quot;week-0&quot;&gt;Week 0&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/23/week-0-all-about-money-the-state-of-the-app/&quot;&gt;The state of the app&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/25/week-0-all-about-money-the-first-xplat-release/&quot;&gt;The goal: first x-platform release&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/27/week-0-all-about-money-functional-ddd-personal-finance/&quot;&gt;Thinking functional and DDD - in the personal finance tracking context&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/2015/08/29/week-0-all-about-money-the-project-structure/&quot;&gt;The new Project structure&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Design of the existing app&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h5 id=&quot;week-1&quot;&gt;Week 1&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;UI and wireframes&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;&lt;sub&gt; …   more to come  … &lt;sub&gt;&lt;/sub&gt;&lt;/sub&gt;&lt;/p&gt;
+
+  &lt;h5 id=&quot;week-n&quot;&gt;Week n&lt;/h5&gt;
+  &lt;ul&gt;
+    &lt;li&gt;The final push to release&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/div&gt;
+
+&lt;h5 id=&quot;background&quot;&gt;Background&lt;/h5&gt;
+
+&lt;p&gt;T4 is awesome! In the C# version of my app - I use it to generate some C# to access string labels from resource files at runtime. Now - this is a problem that has been solved before many times and well.&lt;/p&gt;
+
+&lt;p&gt;My requirement for text localisation is simple. AS discussed in my project structure post, I’ve got a portable class library (PCL) - &lt;code&gt;Money.Common.UI&lt;/code&gt; - that has all the view models which I plan to share across the Windows / Android phone / tablet versions. Since the UI is going to be very similar on different platforms - my labels / text etc. on the UI is likely to be similar too. Also, I have longer term plans to translate the app for other languages (i.e non-English). There are some parts of the UI where the labels are only used/declared in the UI project(s) - like labels for buttons etc. But some others, like page headings, error/information/warning messages and similar ones need to be driven from code - from the view models.&lt;/p&gt;
+
+&lt;p&gt;Given this, I need a solution that:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Let’s me create a simple (ideally text-based) file which holds all UI the strings&lt;/li&gt;
+  &lt;li&gt;The resource file should be easy to edit and share with people who are language translators&lt;/li&gt;
+  &lt;li&gt;The resource file should have a structure, so I can use it to generate strongly-typed code that references the labels&lt;/li&gt;
+  &lt;li&gt;The file should be transformable to other text / other formats used by each UI platform to represent string resources in the native tools for each platform (eg. &lt;code&gt;.resw&lt;/code&gt; files for Windows, &lt;code&gt;.xml&lt;/code&gt; files for Android etc), so that I can make the best use of the localisation support built into each platform, and not have to hack it into the UI myself with some custom libraries.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These requirements are not new for the re-write of this app. I’ve had these for a while, and I already came up with a simple working solution using &lt;code&gt;.resx&lt;/code&gt; files + T4 to generate some C# code (that doesn’t use &lt;a href=&quot;https://msdn.microsoft.com/en-us/library/system.resources.resourcemanager.aspx&quot;&gt;System.Resources.ResourceManager&lt;/a&gt; APIs - because these APIs don’t seem to work well for WinRT apps).&lt;/p&gt;
+
+&lt;p&gt;The new/tricky part for me is - to get it to generate F# code, given T4 tools are not natively supported in Visual Studio when using F# projects.&lt;/p&gt;
+
+&lt;h6 id=&quot;the-existing-c-solution&quot;&gt;The existing C# solution&lt;/h6&gt;
+
+&lt;p&gt;With the old C# solution, the tooling is great. T4 is natively supported and generates files when using ‘Run Custom Tool’ (or automatically if needed during the build process) - the files are added to the project automatically and I can even use something like the free version of the Tangible T4 editor to get basic intellisense when working with the &lt;code&gt;.tt&lt;/code&gt; files.
+I could generate a static class in C# that would delegate the reading of the resource files to a platform specific API via a common interface - so the PCL doesn’t need to know how to read platform-specific version of the resource files. So, I abstracted that into the following interface:&lt;/p&gt;
+
+&lt;!-- gist of IResourceLoader --&gt;
+&lt;script src=&quot;https://gist.github.com/844fe77c9722374a2fb5.js?file=IResourceLoader.cs&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;In the PCL project, there is a &lt;code&gt;Strings.tt&lt;/code&gt; file which looks like the below:&lt;/p&gt;
+
+&lt;!-- gist of Strings.tt --&gt;
+&lt;p&gt;{ gist 844fe77c9722374a2fb5 Strings.tt }&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;.tt&lt;/code&gt; file reads a &lt;code&gt;.resx&lt;/code&gt; that is named after it: &lt;code&gt;Strings.resx&lt;/code&gt; …&lt;/p&gt;
+
+&lt;!-- partial gist of the Strings.resx --&gt;
+&lt;p&gt;{ gist 844fe77c9722374a2fb5 Strings.resx }&lt;/p&gt;
+
+&lt;p&gt;The build action for the &lt;code&gt;Strings.tt&lt;/code&gt; and &lt;code&gt;Strings.resx&lt;/code&gt; is set to ‘None’ - since I didn’t really want the default code with the &lt;code&gt;ResourceManager&lt;/code&gt; APIs generated for a &lt;code&gt;.resx&lt;/code&gt; file - my &lt;code&gt;.tt&lt;/code&gt; file handles it with my customisations. The code generated from the &lt;code&gt;.tt&lt;/code&gt; file looks like:&lt;/p&gt;
+
+&lt;!-- partial gist of the Strings.generated.cs --&gt;
+&lt;p&gt;{ gist 844fe77c9722374a2fb5 Strings.generated.cs }&lt;/p&gt;
+
+&lt;p&gt;Now, the usage of the labels in the view model code becomes simple, easy, and strongly-typed:&lt;/p&gt;
+
+&lt;!-- partial gist of the usage of Strings.generated.cs --&gt;
+&lt;p&gt;{ gist 844fe77c9722374a2fb5 Using-Strings.generated.cs }&lt;/p&gt;
+
+&lt;p&gt;In the Windows UI project, another &lt;code&gt;.tt&lt;/code&gt; file would take the &lt;code&gt;.resx&lt;/code&gt; file and convert it to a &lt;code&gt;.resw&lt;/code&gt; file which is what &lt;a href=&quot;https://msdn.microsoft.com/en-us/library/windows/apps/hh969150.aspx&quot;&gt;WinRT localisation APIs natively use&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- partial gist of the resx-to-resw file --&gt;
+&lt;p&gt;{ gist 844fe77c9722374a2fb5 ResX-ResW.tt }&lt;/p&gt;
+
+&lt;p&gt;Finally, the Windows UI project also has a &lt;code&gt;IResourceLoader&lt;/code&gt; implementation as follows:&lt;/p&gt;
+
+&lt;!-- gist of the Windows ResourceLoader --&gt;
+&lt;p&gt;{ gist 844fe77c9722374a2fb5 WinRTResourceLoader.cs }&lt;/p&gt;
+
+&lt;p&gt;Now, it seems like having all these parts makes it unnecessarily complex. Especially, given MVVMCross has some &lt;a href=&quot;http://slodge.blogspot.com.au/2013/05/n21-internationalisation-i18n-n1-days.html&quot;&gt;localisation plugins&lt;/a&gt;. But, the &lt;code&gt;.tt&lt;/code&gt; files were already written: since my original C# project was written in 2012, started with just a Windows store app and I didn’t start with MVVMCross. In my case, it felt like just reusing most of the existing work I’d already done seemed sensible. If starting a new project, I might consider one of the JSON/other localisation plugins with MVVMCross - but I’m not sure how well they work with the native localisation APIs in each platform.&lt;/p&gt;
+
+&lt;p&gt;(The full gist for all the files above is at: https://gist.github.com/krishna-nadiminti/844fe77c9722374a2fb5)&lt;/p&gt;
+
+&lt;h6 id=&quot;the-f-version&quot;&gt;The F# version&lt;/h6&gt;
+
+&lt;p&gt;Since my view models project is now a F# PCL - I need the strongly-typed code to also be in F#.&lt;/p&gt;
+
+&lt;p&gt;First off, my plan was to just re-use the existing T4 template (written in C#) - to generate F#. But as soon as I found that T4 isn’t well supported in FSharp projects, and that you’d have to resort to adding pre-build steps on the project file to run the templating engine on the command-line, I started looking for nicer / cleaner options…&lt;/p&gt;
+
+&lt;p&gt;Next, I considered using the &lt;a href=&quot;https://fsprojects.github.io/FSharp.Configuration/ResXProvider.html&quot;&gt;ResX type provider&lt;/a&gt; - but it was tied to the &lt;code&gt;ResourceManager&lt;/code&gt; API too. That wouldn’t work in this case. I need my UI platform to provide the implementation of a &lt;code&gt;IResourceLoader&lt;/code&gt;, while the PCL can just read the resources and use them without worrying about how the implementation looks like on each platform.&lt;/p&gt;
+
+&lt;p&gt;After looking around a bit more, &lt;a href=&quot;https://twitter.com/pezi_pink&quot;&gt;@pezi_pink&lt;/a&gt;’s &lt;a href=&quot;http://pinksquirrellabs.com/post/2015/03/01/Introducing-The-Mixin-Type-Provider.aspx&quot;&gt;Mixin type provider&lt;/a&gt; seemed promising - but too complex for my case. After all - all I needed was to generate a bunch of constants in a language, reading strings/keys from a text file. After a quick twitter conversation, he suggested I look at &lt;a href=&quot;https://github.com/kerams/Templatus&quot;&gt;Templatus&lt;/a&gt; - which uses a T4-like templating language and a command-line tool to generate text, with the advantage of being able to write the template in F# + text. I tried playing with it for a little bit, but couldn’t get some of the basic command-line parameter passing options to work. Again, if I didn’t already have a working T4 template, I’d probably had dug deeper to get it working.&lt;/p&gt;
+
+&lt;p&gt;In the end, I decided to just stick with T4, and add a pre-build event to run T4 on the command-line for the F# project:&lt;/p&gt;
+
+&lt;!-- command-line for the F# version --&gt;
+
+&lt;p&gt;“C:\Program Files (x86)\Common Files\Microsoft Shared\TextTemplating\14.0\TextTransform.exe” $(ProjectDir)Strings.tt&lt;/p&gt;
+
+&lt;p&gt;I had to manually add the &lt;code&gt;Strings.generated.fs&lt;/code&gt; project the first time and order it correctly so that the view models can access it - but after that it was easy.&lt;/p&gt;
+
+&lt;p&gt;The advantage with this approach is that I didn’t need to modify my &lt;em&gt;958&lt;/em&gt; line &lt;code&gt;Strings.resx&lt;/code&gt; file from the C# version. And I only had to spend less than 10 minutes porting the C# version of the &lt;code&gt;Strings.tt&lt;/code&gt; to the F# version. (The F# version is still &lt;em&gt;written&lt;/em&gt; in C#, but generates F#!).&lt;/p&gt;
+
+&lt;p&gt;In fact, I spent way more time researching the options and writing up this blog post, than actually porting the &lt;code&gt;Strings.tt&lt;/code&gt; file and getting it to work with the F# PCL.&lt;/p&gt;
+
+&lt;p&gt;The interesting part is how simple the F# version looks and reads:&lt;/p&gt;
+
+&lt;!-- gist of generated code --&gt;
+&lt;p&gt;{ gist 7f7cedddfda009329305 }&lt;/p&gt;
+
+&lt;p&gt;Everyone knows F# is terse, but the readability is significantly improved here. And one quick glance tells you - it is just a bunch of constants.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;122&lt;/em&gt; lines in C# vs &lt;em&gt;26&lt;/em&gt; lines in F#. (excluding comments)&lt;/p&gt;
+
+&lt;p&gt;So - this has been my journey so far with localisation.&lt;/p&gt;
+
+&lt;p&gt;Till next time…&lt;/p&gt;
+</description>
+        <pubDate>Wed, 23 Sep 2015 22:15:09 +1000</pubDate>
+        <link>http://krishna.nadiminti.me/2015/09/23/week-1-all-about-money-localisation-ui-labels/</link>
+        <guid isPermaLink="true">http://krishna.nadiminti.me/2015/09/23/week-1-all-about-money-localisation-ui-labels/</guid>
+        
+        <category>process</category>
+        
+        <category>design</category>
+        
+        <category>UX</category>
+        
+        
+        <category>design</category>
+        
+      </item>
     
       <item>
         <title>Week 0 - All About Money - The Project Structure</title>
