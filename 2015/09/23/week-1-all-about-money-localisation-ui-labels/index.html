@@ -141,7 +141,7 @@
 
 </div>
 
-<h5 id="background">Background</h5>
+<h3 id="background">Background</h3>
 
 <p>T4 is awesome! In the C# version of my app - I use it to generate some C# to access string labels from resource files at runtime. Now - this is a problem that has been solved before many times and well.</p>
 
@@ -160,7 +160,7 @@
 
 <p>The new/tricky part for me is - to get it to generate F# code, given T4 tools are not natively supported in Visual Studio when using F# projects.</p>
 
-<h6 id="the-existing-c-solution">The existing C# solution</h6>
+<h3 id="the-existing-c-solution">The existing C# solution</h3>
 
 <p>With the old C# solution, the tooling is great. T4 is natively supported and generates files when using ‘Run Custom Tool’ (or automatically if needed during the build process) - the files are added to the project automatically and I can even use something like the free version of the Tangible T4 editor to get basic intellisense when working with the <code>.tt</code> files.
 I could generate a static class in C# that would delegate the reading of the resource files to a platform specific API via a common interface - so the PCL doesn’t need to know how to read platform-specific version of the resource files. So, I abstracted that into the following interface:</p>
@@ -202,7 +202,7 @@ I could generate a static class in C# that would delegate the reading of the res
 
 <p>(The full gist for all the files above is at: https://gist.github.com/krishna-nadiminti/844fe77c9722374a2fb5)</p>
 
-<h6 id="the-f-version">The F# version</h6>
+<h3 id="the-f-version">The F# version</h3>
 
 <p>Since my view models project is now a F# PCL - I need the strongly-typed code to also be in F#.</p>
 
@@ -216,7 +216,8 @@ I could generate a static class in C# that would delegate the reading of the res
 
 <!-- command-line for the F# version -->
 
-<p>“C:\Program Files (x86)\Common Files\Microsoft Shared\TextTemplating\14.0\TextTransform.exe” $(ProjectDir)Strings.tt</p>
+<pre><code>"C:\Program Files (x86)\Common Files\Microsoft Shared\TextTemplating\14.0\TextTransform.exe" $(ProjectDir)Strings.tt
+</code></pre>
 
 <p>I had to manually add the <code>Strings.generated.fs</code> project the first time and order it correctly so that the view models can access it - but after that it was easy.</p>
 
